@@ -2,3 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components{
+  .navLink{
+    @apply text-[18px] hover:text-accent
+  }
+}

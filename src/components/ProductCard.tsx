@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import React from 'react'
 import {AiOutlineHeart,AiOutlineShoppingCart,AiFillStar,AiOutlineStar} from "react-icons/ai"
 interface IProduct{
@@ -9,6 +10,7 @@ interface IProduct{
     sale:boolean|undefined;
 }
 const ProductCard = ({id,img,name,price,sale}:IProduct) => {
+    const router=useRouter();
     const addProductTocart=()=>{}
     const getRating=()=>{
         const randomNumber=(min:number,max:number)=>{return Math.ceil(Math.random()*(max-min)+min)};
@@ -30,7 +32,7 @@ const ProductCard = ({id,img,name,price,sale}:IProduct) => {
         }
     }
   return (
-    <div className='group cursor-pointer'>
+    <div className='group cursor-pointer' onClick={()=>router.push(`/details/${id}`)}>
         <div className='relative'>
             <Image className="w-full" width={1000} height={1142} src={img} alt={name}/>
             {sale && <div className='bg-red-600 inline-block absolute top-0 left-0 text-[14px] text-white rounded-md px-2 py-[2px] m-4'>SALE!</div>}

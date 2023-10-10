@@ -1,3 +1,5 @@
+import { addToCart } from '@/redux/fetaures/cartSlice';
+import { useAppDispatch } from '@/redux/hook';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import React from 'react'
@@ -11,7 +13,12 @@ interface IProduct{
 }
 const ProductCard = ({id,img,name,price,sale}:IProduct) => {
     const router=useRouter();
-    const addProductTocart=()=>{}
+    const dispatch=useAppDispatch();
+    const addProductTocart=(e:React.FormEvent)=>{
+        e.stopPropagation();
+        const payload={id,name,img,price,quantity:1}
+        dispatch(addToCart(payload));
+    }
     const getRating=()=>{
         const randomNumber=(min:number,max:number)=>{return Math.ceil(Math.random()*(max-min)+min)};
         switch (randomNumber(0,5)) {

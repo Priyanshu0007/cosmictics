@@ -3,7 +3,6 @@ import { useParams } from 'next/navigation';
 import React, { useEffect, useState } from 'react'
 import Data from "@/utils/productData"
 import Link from 'next/link';
-import Image from 'next/image';
 import { AiFillStar, AiOutlineHeart, AiOutlineShoppingCart, AiOutlineStar } from 'react-icons/ai';
 import {FaFacebookSquare, FaInstagram, FaTwitter,FaCopy} from "react-icons/fa"
 import {MdCompareArrows} from 'react-icons/md'
@@ -77,7 +76,7 @@ const DetailPage = () => {
         <div className='container pt-8'>
             <div className='grid md:grid-cols-2 gap-16'>
                 <div>
-                    <Image className='w-full h-full' src={productData?.img} width={1000} height={1200} alt={productData?.name}/>
+                    <img className='w-full h-full' src={productData?.img}  alt={productData?.name}/>
                 </div>
                 <div className='space-y-4'>
                     <div className='flex items-center text-accent'>

@@ -8,7 +8,8 @@ const Cart = ({setShowCart}:any) => {
     const getTotal=()=>{
         let total=0;
         products.forEach((item)=>(total=total+item.price*item.quantity));
-        return total;
+        return total.toLocaleString("en-US");
+        ;
     }
   return (
     <div className='bg-[#0000007d] w-full min-h-screen fixed left-0 top-0 z-20 overflow-y-scroll'>

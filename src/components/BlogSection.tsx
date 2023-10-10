@@ -3,7 +3,7 @@ import BlogCard from './BlogCard'
 import data from "@/utils/blogData"
 const BlogSection = () => {
   return (
-    <div className='container pt-32 '>
+    <div id="blog"  className='container pt-32 '>
         <h2 className='font-bold text-2xl'>Latest Blogs</h2>
         <p className='text-gray-500'>
             Present posts in a best wat to highlight interesting moments of your blog.

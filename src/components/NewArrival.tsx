@@ -31,7 +31,7 @@ const NewArrival = () => {
         setData(shuffleArray(filterData));
     }
   return (
-    <div className='container pt-32'>
+    <div id="shop"  className='container pt-32'>
         <div className='text-center'>
             <h3 className={`${whisper.className} text-[40px] text-gray-500`}>For your beauty</h3>
             <h2 className='font-semibold text-5xl'>New Arrival</h2>

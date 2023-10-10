@@ -5,17 +5,17 @@ import CategoryCard from './CategoryCard';
 const whisper=Whisper({subsets:["latin"],weight:["400"]});
 const data=[
     {
-        img:"/category/1.png",
+        img:"/category/1.jpg",
         type:"Lipsticks",
         quantity:"(8 Items)",
     },
     {
-        img:"/category/2.png",
-        type:"Nail & Wax",
+        img:"/category/2.jpg",
+        type:"Eyes",
         quantity:"(6 Items)",
     },
     {
-        img:"/category/3.png",
+        img:"/category/3.jpg",
         type:"Skincare",
         quantity:"(4 Items)",
     }

@@ -8,10 +8,11 @@ interface IProduct{
     img:string;
     name:string;
     price:number;
+    star:number;
     sale:boolean|undefined;
 }
 const whisper=Whisper({subsets:["latin"],weight:["400"]});
-const tabsData=["All","Skin Care","Lipsticks","Makeup","Nail & Wax"];
+const tabsData=["All","Skin","Lipsticks","Face","Eyes"];
 const NewArrival = () => {
     const [selectedTab,setSelectedTab]=useState(0);
     const [data,setData]=useState([]);
@@ -38,7 +39,7 @@ const NewArrival = () => {
                 {tabsData.map((text,index)=><li key={text} className={`${selectedTab===index && "text-accent"} cursor-pointer hover:text-accent`} onClick={()=>handleTab(index)}>{text}</li>)}
             </ul>
             <div className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 pt-8'>
-                {data.map((item:IProduct)=><ProductCard key={item.id} id={item.id} img={item.img} name={item.name} price={item.price} sale={item.sale}/>)}
+                {data.map((item:IProduct)=><ProductCard key={item.id} id={item.id} img={item.img} name={item.name} price={item.price} star={item.star} sale={item.sale}/>)}
             </div>
         </div>
     </div>

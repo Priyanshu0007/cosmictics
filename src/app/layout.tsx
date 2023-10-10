@@ -24,6 +24,10 @@ export default function RootLayout({
   const [showCart,setShowCart]=useState(false);
   return (
     <html lang="en">
+      <head>
+        <title>Cosmictics</title>
+        <link rel="icon" href="../../public/favicon.ico"></link>
+      </head>
       <body className={inter.className}>
         <Provider store={store}>
         <NavBar setShowCart={setShowCart}/>

@@ -9,9 +9,10 @@ interface IProduct{
     img:string;
     name:string;
     price:number;
+    star:number;
     sale:boolean|undefined;
 }
-const ProductCard = ({id,img,name,price,sale}:IProduct) => {
+const ProductCard = ({id,img,name,price,star,sale}:IProduct) => {
     const router=useRouter();
     const dispatch=useAppDispatch();
     const addProductTocart=(e:React.FormEvent)=>{
@@ -20,8 +21,8 @@ const ProductCard = ({id,img,name,price,sale}:IProduct) => {
         dispatch(addToCart(payload));
     }
     const getRating=()=>{
-        const randomNumber=(min:number,max:number)=>{return Math.ceil(Math.random()*(max-min)+min)};
-        switch (randomNumber(0,5)) {
+        //const randomNumber=(min:number,max:number)=>{return Math.ceil(Math.random()*(max-min)+min)};
+        switch (star) {
             case 0:
                 return(<div className='flex justify-center text-accent pt-4 pb-2'><AiOutlineStar/><AiOutlineStar/><AiOutlineStar/><AiOutlineStar/><AiOutlineStar/></div>)
             case 1:

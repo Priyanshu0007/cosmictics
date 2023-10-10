@@ -5,15 +5,25 @@ import Data from "@/utils/productData"
 import Link from 'next/link';
 import Image from 'next/image';
 import { AiFillStar, AiOutlineHeart, AiOutlineShoppingCart, AiOutlineStar } from 'react-icons/ai';
-import {FaFacebookSquare, FaInstagram, FaTwitter} from "react-icons/fa"
+import {FaFacebookSquare, FaInstagram, FaTwitter,FaCopy} from "react-icons/fa"
 import {MdCompareArrows} from 'react-icons/md'
+interface comment{
+    id:number;
+    customer:string;
+    rating:number;
+    review:string;
+}
 interface IProduct{
     id:number;
     img:string;
     name:string;
     price:number;
     category:string[];
+    star:number;
+    des:string;
     sale:boolean|undefined;
+    stock:number;
+    comment:comment[];
 }
 const DetailPage = () => {
     const params=useParams();
@@ -23,13 +33,36 @@ const DetailPage = () => {
         name:"",
         price:0,
         category:[],
+        star:0,
         sale:false,
+        des:"",
+        stock:0,
+        comment:[],
     })
+    
     useEffect(()=>{
         const id=params.id;
         const getProductData=Data.filter((item)=>item.id.toString()===id)[0];
         setProductData(getProductData);
     })
+    const getRating=()=>{
+        switch (productData.star) {
+            case 0:
+                return(<div className='flex justify-center text-accent pt-4 pb-2'><AiOutlineStar/><AiOutlineStar/><AiOutlineStar/><AiOutlineStar/><AiOutlineStar/></div>)
+            case 1:
+                return(<div className='flex justify-center text-accent pt-4 pb-2'><AiFillStar/><AiOutlineStar/><AiOutlineStar/><AiOutlineStar/><AiOutlineStar/></div>)
+            case 2:
+                return(<div className='flex justify-center text-accent pt-4 pb-2'><AiFillStar/><AiFillStar/><AiOutlineStar/><AiOutlineStar/><AiOutlineStar/></div>)
+            case 3:
+                return(<div className='flex justify-center text-accent pt-4 pb-2'><AiFillStar/><AiFillStar/><AiFillStar/><AiOutlineStar/><AiOutlineStar/></div>)
+            case 4:
+                return(<div className='flex justify-center text-accent pt-4 pb-2'><AiFillStar/><AiFillStar/><AiFillStar/><AiFillStar/><AiOutlineStar/></div>)
+            case 5:
+                return(<div className='flex justify-center text-accent pt-4 pb-2'><AiFillStar/><AiFillStar/><AiFillStar/><AiFillStar/><AiFillStar/></div>)
+            default:
+                return <div></div>
+        }
+    }
   return (
     <div className='pt-8 '>
         <div className='bg-gray-100 py-4'>
@@ -48,17 +81,17 @@ const DetailPage = () => {
                 </div>
                 <div className='space-y-4'>
                     <div className='flex items-center text-accent'>
-                        <AiFillStar/><AiFillStar/><AiFillStar/><AiFillStar/><AiOutlineStar/>
-                        <p className='text-gray-400 text-[14px] ml-2 hover:text-accent cursor-pointer'>(8 customer review)</p>
+                        {getRating()}
+                        <p className='text-gray-400 text-[14px] ml-2 hover:text-accent cursor-pointer'>({productData.comment.length} customer review)</p>
                     </div>
                     <div className='text-[#161616] space-y-6'>
                         <h2 className='text-3xl font-semibold'>{productData?.name}</h2>
                         <p className='text-xl'>₹{productData?.price}</p>
                     </div>
                     <p className='text-gray-500 text-[14px]'>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit suscipit nam eligendi voluptatem nisi molestias fuga quibusdam ab voluptatum beatae. Placeat iusto, doloribus sed omnis atque velit ad corporis assumenda!
+                        {productData.des}
                     </p>
-                    <p className='text-gray-500 text-[14px]'>20 in stock</p>
+                    <p className='text-gray-500 text-[14px]'>{productData.stock} in stock</p>
                     <button className='uppercase bg-accent py-4 px-4 rounded-lg text-white flex gap-2 items-center hover:bg-black'>
                         <AiOutlineShoppingCart className="text-[24px]"/>Add to cart
                     </button>   
@@ -82,8 +115,8 @@ const DetailPage = () => {
                     <div className="w-[30px] h-[2px] bg-gray-400" />
                     <div className="flex gap-1 items-center pt-4">
                         SHARE: {" "}
-                        <div className="flex gap-2 items-center text-[18px]">
-                            <FaFacebookSquare/> < FaTwitter/> < FaInstagram/>
+                        <div className="flex gap-4 items-center text-[28px]">
+                            <FaCopy/> <FaFacebookSquare/> < FaTwitter/> < FaInstagram/>
                         </div>
                     <div>
                 </div>

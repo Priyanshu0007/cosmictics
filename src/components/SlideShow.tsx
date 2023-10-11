@@ -1,26 +1,16 @@
 import React from "react";
-//These are Third party packages for smooth slideshow
+
 import { Zoom } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
 import { AiOutlineArrowLeft,AiOutlineArrowRight } from 'react-icons/ai'
 import Image from "next/image";
 
 const Slideshow = () => {
-	//Array of Images
-	const images = [
-		"/hero/1.jpg",
-		"/hero/2.jpg",
-		"/hero/3.jpg",
-		"/hero/4.jpg",
-		"/hero/5.jpg",
-        "/hero/6.jpg",
-	];
-
-	//These are custom properties for zoom effect while slide-show
+	const images = ["/hero/1.jpg","/hero/2.jpg","/hero/3.jpg","/hero/4.jpg","/hero/5.jpg","/hero/6.jpg",];
 	const zoomInProperties = {
 		scale: 1,
-		duration: 2000,
-		transitionDuration: 300,
+		duration: 1700,
+		transitionDuration: 400,
 		infinite: true,
 		prevArrow: (
 			<div className="ml-10 top-40 md:top-72">

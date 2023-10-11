@@ -17,6 +17,7 @@ const Cart = ({setShowCart}:any) => {
             <RxCross1 className="absolute right-0 top-0 m-6 text-[24px] cursor-pointer" onClick={()=>setShowCart(false)}/>
             <h3 className='pt-6 text-lg font-mmedium text-gray-600 uppercase'>Your Cart</h3>
             <div className='mt-6 space-y-2'>
+                {getTotal()==="0" && <p className='flex justify-center text-accent'>Opps No Product In Cart Add Some Products</p>}
                 {products?.map((item:any)=>(
                     <CartProduct key={item.id} id={item.id} img={item.img} name={item.name} price={item.price} quantity={item.quantity}/>
                 ))}
@@ -25,12 +26,8 @@ const Cart = ({setShowCart}:any) => {
                 <p>Total:</p>
                 <p>₹{getTotal()}</p>
             </div>
-            <button className='bg-black text-white text-center w-full rounded-3xl py-2 hover:bg-accent mb-4 mt-4'>
-                    View Cart
-            </button>
-            <button className='bg-black text-white text-center w-full rounded-3xl py-2 hover:bg-accent mb-4 mt-4'>
-                    CheckOut
-            </button>
+            {/* <button className=' bg-black text-white text-center w-full rounded-3xl py-2 hover:bg-accent mb-4 mt-4'>View Cart</button> */}
+            <button onClick={()=>alert("Hello")} className={`bg-black text-white text-center w-full rounded-3xl py-2 mb-4 mt-4 ${getTotal()==="0"?"cursor-not-allowed bg-gray-400 pointer-events-none":"hover:bg-accent"}`}>CheckOut</button>
         </div>
     </div>
   )

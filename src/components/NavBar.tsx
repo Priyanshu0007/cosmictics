@@ -3,7 +3,6 @@ import Link from 'next/link';
 import React from 'react'
 import {RxHamburgerMenu} from "react-icons/rx";
 import {RiShoppingBagLine} from "react-icons/ri";
-import {BiSearchAlt2} from "react-icons/bi"
 import { useAppSelector } from '@/redux/hook';
 import { scrollToSection } from '@/utils/helper';
 import Image from 'next/image';

@@ -8,6 +8,7 @@ export default[
         date: "2023-10-15",
         comments: [
           {
+            id:0,
             name: "Emily",
             date: "Oct 24, 2023",
             comment: "Thanks for the tips! I've always struggled with smoky eyes, but your tutorial made it so much easier."
@@ -23,11 +24,13 @@ export default[
         date: "2023-10-20",
         comments: [
           {
+            id:0,
             name: "Aiden",
             date: "Oct 24, 2023",
             comment: "I've always struggled with winged eyeliner, but your tutorial made it so much easier. Thank you!"
           },
           {
+            id:1,
             name: "Olivia",
             date: "Nov 2, 2023",
             comment: "I love winged eyeliner, and your step-by-step guide was so helpful. My wings have never looked better!"
@@ -43,16 +46,19 @@ export default[
         date: "2023-10-25",
         comments: [
           {
+            id:0,
             name: "Noah",
             date: "Nov 2, 2023",
             comment: "I've always struggled with finding the right lipstick shade. Your tips are a game-changer!"
           },
           {
+            id:1,
             name: "Emma",
             date: "Nov 5, 2023",
             comment: "I never knew about matching lipstick to my undertone before. Thanks for the helpful guide!"
           },
           {
+            id:2,
             name: "Sophia",
             date: "Nov 2, 2023",
             comment: "I tried this look last night, and it turned out amazing! My friends were so impressed. Keep the makeup tips coming!"
@@ -68,11 +74,13 @@ export default[
         date: "2023-10-30",
         comments: [
           {
+            id:0,
             name: "Liam",
             date: "Oct 26, 2023",
             comment: "Highlighter is my secret weapon for glowing skin, and your tutorial is spot on! Love it!"
           },
           {
+            id:1,
             name: "Sophie",
             date: "Oct 30, 2023",
             comment: "I've always been a bit intimidated by highlighter, but your tips make it seem easy. Excited to try it out!"

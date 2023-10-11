@@ -12,7 +12,7 @@ interface IProduct{
     sale:boolean|undefined;
 }
 const whisper=Whisper({subsets:["latin"],weight:["400"]});
-const tabsData=["All","Skin","Lipsticks","Face","Eyes"];
+const tabsData=["All","Skin","Lipsticks","Brows","Eyes"];
 const NewArrival = ({setSelectedTab,selectedTab}:any) => {
     
     const [data,setData]=useState([]);
@@ -26,12 +26,13 @@ const NewArrival = ({setSelectedTab,selectedTab}:any) => {
     const handleTab=(index:number)=>{
         const category=tabsData[index].toLowerCase();
         setSelectedTab(index);
-        if(category==="all"||index===selectedTab){setData(shuffleArray(Data).slice(0,15));return;}
+        if(category==="all"){setData(shuffleArray(Data).slice(0,15));return;}
         const filterData=Data.filter((item)=>item.category.includes(category));
         setData(shuffleArray(filterData));
     }
+    useEffect(()=>{handleTab(selectedTab)},[selectedTab])
   return (
-    <div id="shop"  className='container pt-32'>
+    <div id="shop" className='container pt-32'>
         <div className='text-center'>
             <h3 className={`${whisper.className} text-[40px] text-gray-500`}>For your beauty</h3>
             <h2 className='font-semibold text-5xl'>New Arrival</h2>

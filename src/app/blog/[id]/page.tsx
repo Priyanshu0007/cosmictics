@@ -5,7 +5,11 @@ import { useParams } from 'next/navigation';
 import {FaFacebookSquare, FaInstagram, FaTwitter,FaCopy} from "react-icons/fa"
 import Link from 'next/link';
 import SimilarBlogCard from '@/components/SimilarBlogCard';
+import { comment } from 'postcss';
+import Comment from '@/components/Comment';
+import { scrollToSection } from '@/utils/helper';
 interface comments{
+    id:number
     name:string;
     date:string;
     comment:string;
@@ -60,7 +64,7 @@ const page = () => {
                 <div className='space-y-4'>
                     <div className='flex space-between justify-between'>
                         <div className='flex items-center text-accent'>
-                            <p className='text-gray-400 text-[13px] ml-2 hover:text-accent cursor-pointer'>({blogData.comments.length} {`comment${blogData.comments.length>1?'s':''}`})</p>
+                            <p onClick={()=>scrollToSection("comment")} className='text-gray-400 text-[13px] ml-2 hover:text-accent cursor-pointer'>({blogData.comments.length} {`comment${blogData.comments.length>1?'s':''}`})</p>
                         </div>
                         <div className="flex gap-1 items-center ">
                             Share: {" "}
@@ -74,6 +78,11 @@ const page = () => {
                     </div>
                     <div className='text-gray-500 text-[18px]'>
                         <div dangerouslySetInnerHTML={{ __html: htmlBody.innerHTML }} />
+                    </div>
+                    <h2 id="comment">Comments :</h2>
+                    <div className="w-3/4 h-[2px] bg-gray-400" />
+                    <div>
+                        {blogData.comments.map((com)=><Comment key={com.id} name={com.name} date={com.date} comment={com.comment} rating={6}/>)}
                     </div>
                 </div>
                 <div className='flex flex-col space-y-4'>

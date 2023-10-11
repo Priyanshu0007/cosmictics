@@ -6,6 +6,8 @@ import Link from 'next/link';
 import { AiFillStar, AiOutlineHeart, AiOutlineShoppingCart, AiOutlineStar } from 'react-icons/ai';
 import {FaFacebookSquare, FaInstagram, FaTwitter,FaCopy} from "react-icons/fa"
 import {MdCompareArrows} from 'react-icons/md'
+import Comment from '@/components/Comment';
+import { scrollToSection } from '@/utils/helper';
 interface comment{
     id:number;
     customer:string;
@@ -79,13 +81,13 @@ const DetailPage = () => {
         <div className='container pt-8'>
             <div className='grid md:grid-cols-2 gap-16'>
                 <div>
-                    <img className='w-full h-full' src={productData?.img}  alt={productData?.name}/>
+                    <img className='w-full ' src={productData?.img}  alt={productData?.name}/>
                 </div>
                 <div className='space-y-4'>
                 <div className='flex space-between justify-between'>
                         <div className='flex flex-col lg:flex-row justify-around items-center text-accent'>
                             {getRating()}
-                            <p className='text-gray-400 text-[13px] ml-2 hover:text-accent cursor-pointer'>({productData.comment.length} customer review)</p>
+                            <p onClick={()=>scrollToSection("comment")} className='text-gray-400 text-[13px] ml-2 hover:text-accent cursor-pointer'>({productData.comment.length} customer review)</p>
                         </div>
                         <div className="flex gap-1 items-center ">
                             Share: {" "}
@@ -123,7 +125,9 @@ const DetailPage = () => {
                         <div key={item}>{item}</div>))}
                     </div>
                     <div className="w-[30px] h-[2px] bg-gray-400" />
-                    
+                    <h2 id='comment'>Comments :</h2>
+                    <div className="w-3/4 h-[2px] bg-gray-400" />
+                    {productData.comment.map((com)=><Comment key={com.id} name={com.customer} date={com.date} comment={com.review} rating={com.rating}/>)}
                 </div>
             </div>
         </div>

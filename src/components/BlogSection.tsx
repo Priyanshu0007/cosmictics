@@ -1,6 +1,7 @@
 import React from 'react'
 import BlogCard from './BlogCard'
 import data from "@/utils/blogData"
+
 const BlogSection = () => {
   return (
     <div id="blog"  className='container pt-32 '>

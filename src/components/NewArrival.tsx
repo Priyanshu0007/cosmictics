@@ -13,8 +13,8 @@ interface IProduct{
 }
 const whisper=Whisper({subsets:["latin"],weight:["400"]});
 const tabsData=["All","Skin","Lipsticks","Face","Eyes"];
-const NewArrival = () => {
-    const [selectedTab,setSelectedTab]=useState(0);
+const NewArrival = ({setSelectedTab,selectedTab}:any) => {
+    
     const [data,setData]=useState([]);
     const shuffleArray=(array:any)=>{
         return array

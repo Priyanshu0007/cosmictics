@@ -10,6 +10,7 @@ interface comment{
     id:number;
     customer:string;
     rating:number;
+    date:string;
     review:string;
 }
 interface IProduct{
@@ -47,21 +48,23 @@ const DetailPage = () => {
     const getRating=()=>{
         switch (productData.star) {
             case 0:
-                return(<div className='flex justify-center text-accent pt-4 pb-2'><AiOutlineStar/><AiOutlineStar/><AiOutlineStar/><AiOutlineStar/><AiOutlineStar/></div>)
+                return(<div className='flex justify-center text-accent '><AiOutlineStar/><AiOutlineStar/><AiOutlineStar/><AiOutlineStar/><AiOutlineStar/></div>)
             case 1:
-                return(<div className='flex justify-center text-accent pt-4 pb-2'><AiFillStar/><AiOutlineStar/><AiOutlineStar/><AiOutlineStar/><AiOutlineStar/></div>)
+                return(<div className='flex justify-center text-accent '><AiFillStar/><AiOutlineStar/><AiOutlineStar/><AiOutlineStar/><AiOutlineStar/></div>)
             case 2:
-                return(<div className='flex justify-center text-accent pt-4 pb-2'><AiFillStar/><AiFillStar/><AiOutlineStar/><AiOutlineStar/><AiOutlineStar/></div>)
+                return(<div className='flex justify-center text-accent '><AiFillStar/><AiFillStar/><AiOutlineStar/><AiOutlineStar/><AiOutlineStar/></div>)
             case 3:
-                return(<div className='flex justify-center text-accent pt-4 pb-2'><AiFillStar/><AiFillStar/><AiFillStar/><AiOutlineStar/><AiOutlineStar/></div>)
+                return(<div className='flex justify-center text-accent '><AiFillStar/><AiFillStar/><AiFillStar/><AiOutlineStar/><AiOutlineStar/></div>)
             case 4:
-                return(<div className='flex justify-center text-accent pt-4 pb-2'><AiFillStar/><AiFillStar/><AiFillStar/><AiFillStar/><AiOutlineStar/></div>)
+                return(<div className='flex justify-center text-accent '><AiFillStar/><AiFillStar/><AiFillStar/><AiFillStar/><AiOutlineStar/></div>)
             case 5:
-                return(<div className='flex justify-center text-accent pt-4 pb-2'><AiFillStar/><AiFillStar/><AiFillStar/><AiFillStar/><AiFillStar/></div>)
+                return(<div className='flex justify-center text-accent '><AiFillStar/><AiFillStar/><AiFillStar/><AiFillStar/><AiFillStar/></div>)
             default:
                 return <div></div>
         }
     }
+    console.log(productData.star);
+    
   return (
     <div className='pt-8 '>
         <div className='bg-gray-100 py-4'>
@@ -79,10 +82,18 @@ const DetailPage = () => {
                     <img className='w-full h-full' src={productData?.img}  alt={productData?.name}/>
                 </div>
                 <div className='space-y-4'>
-                    <div className='flex items-center text-accent'>
-                        {getRating()}
-                        <p className='text-gray-400 text-[14px] ml-2 hover:text-accent cursor-pointer'>({productData.comment.length} customer review)</p>
-                    </div>
+                <div className='flex space-between justify-between'>
+                        <div className='flex flex-col lg:flex-row justify-around items-center text-accent'>
+                            {getRating()}
+                            <p className='text-gray-400 text-[13px] ml-2 hover:text-accent cursor-pointer'>({productData.comment.length} customer review)</p>
+                        </div>
+                        <div className="flex gap-1 items-center ">
+                            Share: {" "}
+                            <div className="flex gap-4 items-center text-[28px] sm:text-[18px]">
+                                <FaCopy/> <FaFacebookSquare/> < FaTwitter/> < FaInstagram/>
+                            </div>
+                        </div>
+                </div>
                     <div className='text-[#161616] space-y-6'>
                         <h2 className='text-3xl font-semibold'>{productData?.name}</h2>
                         <p className='text-xl'>₹{productData?.price}</p>
@@ -112,17 +123,11 @@ const DetailPage = () => {
                         <div key={item}>{item}</div>))}
                     </div>
                     <div className="w-[30px] h-[2px] bg-gray-400" />
-                    <div className="flex gap-1 items-center pt-4">
-                        SHARE: {" "}
-                        <div className="flex gap-4 items-center text-[28px]">
-                            <FaCopy/> <FaFacebookSquare/> < FaTwitter/> < FaInstagram/>
-                        </div>
-                    <div>
+                    
                 </div>
             </div>
         </div>
-    </div>
-    </div>
+        
     </div>
   )
 }

@@ -14,31 +14,37 @@ export default[
             id:0,
             customer: "Sarah",
             rating: 5,
+            date: "Oct 30, 2023",
             review: "I'm absolutely in love with this lipstick! The color payoff is amazing, and it lasts all day. Highly recommend!"
             },{
             id:1,
             customer: "Michael",
             rating: 4,
+            date: "Oct 30, 2023",
             review: "This lipstick has a great texture and feels comfortable on the lips. It's not completely transfer-proof, but it still looks fantastic."
             },{
             id:2,
             customer: "Emily",
             rating: 5,
+            date: "Oct 31, 2023",
             review: "The shade options are fantastic, and I found the perfect red for my skin tone. It's so easy to apply, and the packaging is elegant."
             },{
             id:3,
             customer: "David",
             rating: 3,
+            date: "Sep 30, 2023",
             review: "Decent lipstick, but it could have better staying power. The color is nice, but I find myself reapplying throughout the day."
             },{
             id:4,
             customer: "Jessica",
             rating: 5,
+            date: "Sep 30, 2023",
             review: "I've tried many lipsticks, and this one is my new favorite. It's long-lasting, doesn't feather, and feels light on the lips."
             },{
             id:5,
             customer: "Olivia",
             rating: 4,
+            date: "Oct 13, 2023",
             review: "This lipstick is a great value for the price. It's not as long-wearing as some high-end brands, but it still gives a lovely finish."
             }
         ]
@@ -57,11 +63,13 @@ export default[
                 id:0,
                 customer: "Sarah",
                 rating: 5,
+                date: "Oct 30, 2023",
                 review: "I'm absolutely in love with this lipstick! The color payoff is amazing, and it lasts all day. Highly recommend!"
                 },{
                     id: 1,
                     customer: "Emma",
                     rating: 4,
+                    date: "Oct 26, 2023",
                     review: "I really enjoy using this lipstick. It's quite long-lasting, and the matte finish feels comfortable on my lips."
                   }
                   ,
@@ -69,6 +77,7 @@ export default[
                     id: 2,
                     customer: "Grace",
                     rating: 5,
+                    date: "Oct 23, 2023",
                     review: "This lipstick exceeded my expectations! Not only is it long-lasting, but it also makes my lips look fuller and more radiant."
                   }
                   ,
@@ -76,6 +85,7 @@ export default[
                     id: 3,
                     customer: "Sophie",
                     rating: 4,
+                    date: "Oct 20, 2023",
                     review: "I love the square, angled tip of this lipstick; it makes application so easy. The matte finish is great, but I wish it lasted a bit longer."
                   }
                   
@@ -85,9 +95,9 @@ export default[
         img: "/product/3.webp",
         name: "NARS Radiant Creamy Concealer",
         price: 2850,
-        category: ["face"],
+        category: ["skin"],
         sale: true,
-        star: 4.5,
+        star: 4,
         des: "Achieve flawless, radiant skin with NARS Radiant Creamy Concealer. This highly acclaimed concealer provides buildable coverage, effectively hiding imperfections, dark circles, and blemishes while leaving your skin looking natural and luminous. Its long-lasting formula ensures that your complexion stays flawless all day long. Perfect for all skin types, this concealer is a makeup must-have.",
         stock: 20,
         comment: [
@@ -95,12 +105,14 @@ export default[
             id: 0,
             customer: "Ella",
             rating: 5,
+            date: "Oct 26, 2023",
             review: "This concealer is a game-changer! It covers everything effortlessly and stays put all day. I love it!"
           },
           {
             id: 1,
             customer: "Liam",
             rating: 4,
+            date: "Oct 20, 2023",
             review: "Great concealer, but the shade range could be improved. It blends well and provides good coverage."
           }
         ]
@@ -111,7 +123,7 @@ export default[
         price: 4200,
         category: ["eyes"],
         sale: false,
-        star: 4.7,
+        star: 5,
         des: "Create stunning eye looks with the Urban Decay Naked3 Eyeshadow Palette. This palette features 12 beautiful rose-hued neutral shades with a mix of mattes and shimmers. The velvety texture and richly pigmented colors allow you to achieve versatile eye makeup styles, from everyday natural to sultry smoky. The included double-ended brush makes application a breeze. Elevate your eye game with this iconic palette.",
         stock: 15,
         comment: [
@@ -119,12 +131,14 @@ export default[
             id: 0,
             customer: "Oliver",
             rating: 5,
+            date: "Oct 26, 2023",
             review: "I'm in love with this eyeshadow palette! The shades are stunning, and they blend like a dream. A must-have for any makeup enthusiast."
           },
           {
             id: 1,
             customer: "Ava",
             rating: 4,
+            date: "Oct 26, 2023",
             review: "The colors in this palette are gorgeous, but I wish there were more matte shades. Overall, it's a great addition to my makeup collection."
           }
         ]
@@ -133,9 +147,9 @@ export default[
         img: "/product/5.jpeg",
         name: "Fenty Beauty Pro Filt'r Soft Matte Longwear Foundation",
         price: 3400,
-        category: ["face"],
+        category: ["skin"],
         sale: true,
-        star: 4.6,
+        star: 3,
         des: "Achieve a flawless complexion with Fenty Beauty's Pro Filt'r Soft Matte Longwear Foundation. This foundation offers buildable, long-lasting coverage with a soft matte finish. It's available in an extensive range of shades to match every skin tone. Say goodbye to shine and hello to a natural-looking, matte complexion that stays put all day.",
         stock: 25,
         comment: [
@@ -143,12 +157,14 @@ export default[
             id: 0,
             customer: "Mia",
             rating: 5,
+            date: "Nov 20, 2023",
             review: "This foundation is my holy grail! It provides fantastic coverage without feeling heavy. It stays matte all day long."
           },
           {
             id: 1,
             customer: "Noah",
             rating: 4,
+            date: "Nov 20, 2023",
             review: "Great foundation, but I had a bit of trouble finding my exact shade. Once I did, it looked amazing and lasted all day."
           }
         ]
@@ -159,7 +175,7 @@ export default[
         price: 2200,
         category: ["brows"],
         sale: false,
-        star: 4.3,
+        star: 4,
         des: "Define and shape your eyebrows effortlessly with the Anastasia Beverly Hills Brow Wiz. This ultra-slim, retractable pencil features a fine tip for precise application. It comes in a variety of shades to match your brow color perfectly. The spoolie brush on the other end blends and shapes for a natural-looking finish.",
         stock: 30,
         comment: [
@@ -167,12 +183,14 @@ export default[
             id: 0,
             customer: "Lily",
             rating: 5,
+            date: "Nov 2, 2023",
             review: "The Brow Wiz is a must-have for anyone obsessed with perfect brows! It's so easy to use and gives a polished look."
           },
           {
             id: 1,
             customer: "William",
             rating: 3,
+            date: "Nov 2, 2023",
             review: "It's a good eyebrow pencil, but it tends to run out quickly. I wish it lasted longer for the price."
           }
         ]
@@ -183,7 +201,7 @@ export default[
         price: 2800,
         category: ["lipsticks"],
         sale: false,
-        star: 4.8,
+        star: 5,
         des: "Turn heads with the iconic MAC Cosmetics Ruby Woo Retro Matte Lipstick. This classic red lipstick offers a bold, retro matte finish that's highly pigmented and long-lasting. It's the perfect shade to make a statement, and it suits all skin tones.",
         stock: 18,
         comment: [
@@ -191,12 +209,14 @@ export default[
             id: 0,
             customer: "James",
             rating: 5,
+            date: "Nov 4, 2023",
             review: "Ruby Woo is a timeless classic! The color is stunning, and it stays put even after a meal."
           },
           {
             id: 1,
             customer: "Sophia",
             rating: 5,
+            date: "Nov 4, 2023",
             review: "My go-to red lipstick! It's vibrant, long-lasting, and never goes out of style."
           }
         ]
@@ -207,7 +227,7 @@ export default[
         price: 2500,
         category: ["eyes"],
         sale: true,
-        star: 4.5,
+        star: 4,
         des: "Get luscious, dramatic lashes with the Too Faced Better Than Sex Mascara. This mascara delivers intense volume, length, and curl with just one coat. The hourglass-shaped brush ensures even application for a bold, sultry look that lasts all day.",
         stock: 22,
         comment: [
@@ -215,12 +235,14 @@ export default[
             id: 0,
             customer: "Ethan",
             rating: 5,
+            date: "Nov 10, 2023",
             review: "This mascara is the real deal! My lashes look amazing, and it doesn't smudge or flake."
           },
           {
             id: 1,
             customer: "Isabella",
             rating: 4,
+            date: "Nov 10, 2023",
             review: "It's a great mascara, but the name is a bit too bold. Still, it does make my lashes look fabulous!"
           }
         ]
@@ -231,7 +253,7 @@ export default[
         price: 3800,
         category: ["eyes"],
         sale: false,
-        star: 4.7,
+        star: 3,
         des: "Unleash your creativity with the Huda Beauty Desert Dusk Eyeshadow Palette. This palette features 18 highly pigmented shades inspired by the colors of the desert. Create stunning day-to-night eye looks with a mix of mattes and shimmers. The velvety texture and vibrant hues make it a must-have for eyeshadow enthusiasts.",
         stock: 14,
         comment: [
@@ -239,12 +261,14 @@ export default[
             id: 0,
             customer: "Sophie",
             rating: 5,
+            date: "Nov 20, 2023",
             review: "I'm obsessed with this palette! The colors are breathtaking, and they blend like a dream. Worth every penny!"
           },
           {
             id: 1,
             customer: "Daniel",
             rating: 4,
+            date: "Nov 20, 2023",
             review: "The shades are gorgeous, but there's a bit of fallout. Nonetheless, it's a fantastic palette for creating bold looks."
           }
         ]
@@ -253,9 +277,9 @@ export default[
         img: "/product/10.jpeg",
         name: "Benefit Cosmetics Hoola Matte Bronzer",
         price: 2900,
-        category: ["face"],
+        category: ["skin"],
         sale: true,
-        star: 4.4,
+        star: 2,
         des: "Achieve a sun-kissed glow with Benefit Cosmetics Hoola Matte Bronzer. This matte bronzer provides a natural-looking, warm tan without any shimmer or shine. The finely milled powder blends seamlessly and is perfect for contouring and sculpting your features.",
         stock: 28,
         comment: [
@@ -263,12 +287,14 @@ export default[
             id: 0,
             customer: "Ella",
             rating: 5,
+            date: "Nov 20, 2023",
             review: "Hoola is my go-to bronzer! It's perfect for contouring, and the matte finish is so flattering."
           },
           {
             id: 1,
             customer: "Liam",
             rating: 4,
+            date: "Nov 20, 2023",
             review: "Great bronzer, but I wish it came in more shades. It works well for me, though."
           }
         ]

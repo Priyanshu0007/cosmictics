@@ -9,7 +9,7 @@ const BlogSection = () => {
             Present posts in a best wat to highlight interesting moments of your blog.
         </p>
         <div className='grid sm:grid-cols-2 md:grid-cols-3 gap-8 pt-8'>
-            {data.map(item=><BlogCard key={item.id} img={item.img} title={item.title} date={item.date} comments={item.comments}/>)}
+            {data.map(item=><BlogCard key={item.id} id={item.id} img={item.img} title={item.title} date={item.date} comments={item.comments}/>)}
         </div>
     </div>
   )

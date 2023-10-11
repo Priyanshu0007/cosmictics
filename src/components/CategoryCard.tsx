@@ -4,16 +4,19 @@ import Image from 'next/image';
 import React from 'react'
 
 interface propsType{
+    id:number;
+    setSelectedTab:any;
     img:string;
     type:string;
     quantity:string;
 }
-const CategoryCard = ({img,type,quantity}:propsType) => {
-  const menuItemClickHandler = (section:any) => {
-    scrollToSection(section);
+const CategoryCard = ({img,type,quantity,id,setSelectedTab}:propsType) => {
+  const menuItemClickHandler = (id:number) => {
+    scrollToSection("shop");
+    setSelectedTab(id);
 };
   return (
-    <div className='space-y-4' onClick={() => menuItemClickHandler("shop")}>
+    <div className='space-y-4' onClick={() => menuItemClickHandler(id)}>
         <Image className='rounded-full border-4 md:border-8 border-white' src={img} width={250} height={250} alt={type} />
         <div>
             <h2 className='text-[14px] md:text-xl font-medium'>{type}</h2>

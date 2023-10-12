@@ -4,10 +4,11 @@ import React, { useEffect, useState } from 'react'
 import Data from "@/utils/productData"
 import Link from 'next/link';
 import { AiFillStar, AiOutlineHeart, AiOutlineShoppingCart, AiOutlineStar } from 'react-icons/ai';
-import {FaFacebookSquare, FaInstagram, FaTwitter,FaCopy} from "react-icons/fa"
+
 import {MdCompareArrows} from 'react-icons/md'
 import Comment from '@/components/Comment';
 import { scrollToSection } from '@/utils/helper';
+import Share from '@/components/Share';
 interface comment{
     id:number;
     customer:string;
@@ -65,7 +66,6 @@ const DetailPage = () => {
                 return <div></div>
         }
     }
-    console.log(productData.star);
     
   return (
     <div className='pt-8 '>
@@ -89,12 +89,7 @@ const DetailPage = () => {
                             {getRating()}
                             <p onClick={()=>scrollToSection("comment")} className='text-gray-400 text-[13px] ml-2 hover:text-accent cursor-pointer'>({productData.comment.length} customer review)</p>
                         </div>
-                        <div className="flex gap-1 items-center ">
-                            Share: {" "}
-                            <div className="flex gap-4 items-center text-[28px] sm:text-[18px]">
-                                <FaCopy/> <FaFacebookSquare/> < FaTwitter/> < FaInstagram/>
-                            </div>
-                        </div>
+                        <Share url={window.location.href} title={productData.name}/>
                 </div>
                     <div className='text-[#161616] space-y-6'>
                         <h2 className='text-3xl font-semibold'>{productData?.name}</h2>

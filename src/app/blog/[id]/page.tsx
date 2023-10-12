@@ -2,12 +2,11 @@
 import React, { useEffect, useState } from 'react'
 import Data from "@/utils/blogData"
 import { useParams } from 'next/navigation';
-import {FaFacebookSquare, FaInstagram, FaTwitter,FaCopy} from "react-icons/fa"
 import Link from 'next/link';
 import SimilarBlogCard from '@/components/SimilarBlogCard';
-import { comment } from 'postcss';
 import Comment from '@/components/Comment';
 import { scrollToSection } from '@/utils/helper';
+import Share from '@/components/Share';
 interface comments{
     id:number
     name:string;
@@ -48,6 +47,7 @@ const page = () => {
     const htmlBody=convertStringToHTML(blogData.blog_content_html);
     const similarBlog = Data.filter((item) => item.id !== blogData.id);
     similarBlog.splice(3);
+    
   return (
     <div className='pt-8'>
          <div className='bg-gray-100 py-4'>
@@ -66,12 +66,7 @@ const page = () => {
                         <div className='flex items-center text-accent'>
                             <p onClick={()=>scrollToSection("comment")} className='text-gray-400 text-[13px] ml-2 hover:text-accent cursor-pointer'>({blogData.comments.length} {`comment${blogData.comments.length>1?'s':''}`})</p>
                         </div>
-                        <div className="flex gap-1 items-center ">
-                            Share: {" "}
-                            <div className="flex gap-4 items-center text-[28px] sm:text-[18px]">
-                                <FaCopy/> <FaFacebookSquare/> < FaTwitter/> < FaInstagram/>
-                            </div>
-                        </div>
+                        <Share url={window.location.href} title={blogData.title}/>
                     </div>
                     <div className='text-[#161616] space-y-6'>
                         <h2 className='text-3xl font-semibold'>{blogData?.title}</h2>

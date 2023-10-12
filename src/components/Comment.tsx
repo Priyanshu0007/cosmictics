@@ -33,9 +33,9 @@ const Comment = ({name,date,comment,rating}:ICom) => {
             <p>{getRating(rating)}</p>
             <p className='text-gray-500'>{date}</p>
         </div>
-        <div>
-            <p>{comment}</p>
-        </div>
+        <p>
+            {comment}
+        </p>
         <div className="w-3/4 h-[2px] bg-gray-400 mt-2" />
     </div>
   )

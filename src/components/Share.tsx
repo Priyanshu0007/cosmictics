@@ -1,6 +1,6 @@
 import React from 'react'
-import {FaFacebookSquare, FaInstagram, FaWhatsappSquare} from "react-icons/fa"
-import {FacebookShareButton,InstapaperShareButton,WhatsappShareButton} from "react-share"
+import {FaFacebook, FaTelegram, FaWhatsappSquare} from "react-icons/fa"
+import {FacebookShareButton,TelegramShareButton,WhatsappShareButton} from "react-share"
 interface typeU{
     url:string;
     title:string
@@ -22,14 +22,14 @@ const Share = ({url,title}:typeU) => {
         <div className="flex gap-4 items-center text-[28px] sm:text-[20px]">
             {/* <FaCopy onClick={copy}/>  */}
             <FacebookShareButton url={url} quote={`Checkout ${title}`} hashtag="#muo">
-                <FaFacebookSquare/>
+                <FaFacebook/>
             </FacebookShareButton>
             <WhatsappShareButton url={url} title={`Checkout ${title}`} separator={"#muo"}>
                 < FaWhatsappSquare/> 
             </WhatsappShareButton>
-            <InstapaperShareButton url={url} title={`Checkout ${title}`} description={"#muo"}>
-                < FaInstagram/>
-            </InstapaperShareButton>
+            <TelegramShareButton url={url} title={`Checkout ${title}`}>
+                < FaTelegram/>
+            </TelegramShareButton>
         </div>
     </div>
   )

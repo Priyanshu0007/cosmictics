@@ -11,6 +11,7 @@ import { scrollToSection } from '@/utils/helper';
 import Share from '@/components/Share';
 import ImageSlideShow from '@/components/ImageSlideShow';
 import Slideshow from '@/components/SlideShow';
+import ProductCard from '@/components/ProductCard';
 interface comment{
     id:number;
     customer:string;
@@ -68,6 +69,8 @@ const DetailPage = () => {
                 return <div></div>
         }
     }
+    const similarProducts = Data.filter((item) => item.id !== productData.id).filter((item)=>item.category[0]===productData.category[0]);
+    similarProducts.splice(2);
     
   return (
     <div className='pt-8 '>
@@ -83,9 +86,7 @@ const DetailPage = () => {
         <div className='container pt-8'>
             <div className='grid md:grid-cols-2 gap-16'>
                 <div className='w-screen-2 overflow-y-hidden h-fit sm:w-full overflow-x-hidden'>
-                    {/* <img className='w-full ' src={productData?.img[0]}  alt={productData?.name}/> */}
                     <ImageSlideShow img={productData?.img}/>
-                    {/* <Slideshow/> */}
                 </div>
                 <div className='space-y-4'>
                 <div className='flex space-between justify-between'>
@@ -122,6 +123,12 @@ const DetailPage = () => {
                     Tags: {" "}
                     {productData?.category.map((item:any) => (
                         <div key={item}>{item}</div>))}
+                    </div>
+                    <div className="w-[30px] h-[2px] bg-gray-400" />
+                    <h2 id='comment'>Similar Products :</h2>
+                    <div className="w-3/4 h-[2px] bg-gray-400" />
+                    <div className='grid md:grid-cols-2'>
+                        {similarProducts.map((item:IProduct)=><ProductCard key={item.id} id={item.id} img={item.img[0]} name={item.name} price={item.price} star={item.star} sale={item.sale}/>)}
                     </div>
                     <div className="w-[30px] h-[2px] bg-gray-400" />
                     <h2 id='comment'>Comments :</h2>

@@ -25,6 +25,7 @@ const NewArrival = ({setSelectedTab,selectedTab}:any) => {
     useEffect(()=>{setData(shuffleArray(Data).slice(0,15));},[])
     const handleTab=(index:number)=>{
         const category=tabsData[index].toLowerCase();
+        
         setSelectedTab(index);
         if(category==="all"){setData(shuffleArray(Data).slice(0,15));return;}
         const filterData=Data.filter((item)=>item.category.includes(category));

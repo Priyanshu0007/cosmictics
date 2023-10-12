@@ -9,6 +9,8 @@ import {MdCompareArrows} from 'react-icons/md'
 import Comment from '@/components/Comment';
 import { scrollToSection } from '@/utils/helper';
 import Share from '@/components/Share';
+import ImageSlideShow from '@/components/ImageSlideShow';
+import Slideshow from '@/components/SlideShow';
 interface comment{
     id:number;
     customer:string;
@@ -18,7 +20,7 @@ interface comment{
 }
 interface IProduct{
     id:number;
-    img:string;
+    img:string[];
     name:string;
     price:number;
     category:string[];
@@ -32,7 +34,7 @@ const DetailPage = () => {
     const params=useParams();
     const [productData,setProductData]=useState<IProduct>({
         id:0,
-        img:"",
+        img:[],
         name:"",
         price:0,
         category:[],
@@ -80,8 +82,10 @@ const DetailPage = () => {
         </div>
         <div className='container pt-8'>
             <div className='grid md:grid-cols-2 gap-16'>
-                <div>
-                    <img className='w-full ' src={productData?.img}  alt={productData?.name}/>
+                <div className='w-screen-2 overflow-y-hidden h-fit sm:w-full overflow-x-hidden'>
+                    {/* <img className='w-full ' src={productData?.img[0]}  alt={productData?.name}/> */}
+                    <ImageSlideShow img={productData?.img}/>
+                    {/* <Slideshow/> */}
                 </div>
                 <div className='space-y-4'>
                 <div className='flex space-between justify-between'>

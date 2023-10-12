@@ -11,7 +11,7 @@ const Cart = ({setShowCart}:any) => {
         return total.toLocaleString("en-US");
     }
   return (
-    <div className='bg-[#0000007d] w-full min-h-screen fixed left-0 top-0 z-20 overflow-y-scroll'>
+    <div className='bg-[#0000007d] w-full min-h-screen fixed left-0 top-0 z-40 overflow-y-scroll'>
         <div className='max-w-[400px] w-full min-h-full bg-white absolute right-0 top-0 p-6'>
             <RxCross1 className="absolute right-0 top-0 m-6 text-[24px] cursor-pointer" onClick={()=>setShowCart(false)}/>
             <h3 className='pt-6 text-lg font-mmedium text-gray-600 uppercase'>Your Cart</h3>

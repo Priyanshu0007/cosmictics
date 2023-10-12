@@ -1,7 +1,7 @@
 export default[
     {
         id:0,
-        img:"/product/1.jpg",
+        img:["/product/1/1.jpg","/product/1/2.jpg","/product/1/3.jpg","/product/1/4.jpg","/product/1/5.jpg"],
         name:"Nykaa Matte Finish Lipstick",
         price:1599,
         category:["lipsticks"],
@@ -50,7 +50,7 @@ export default[
         ]
     },{
             id:1,
-            img:"/product/2.jpg",
+            img:["/product/2/1.jpg","/product/2/2.jpg","/product/2/3.jpg","/product/2/4.jpg"],
             name:"Charlotte Tilbury Matte Revolution - Pillow Talk Medium",
             price:3150,
             category:["lipsticks"],
@@ -92,8 +92,8 @@ export default[
             ]
     },{
         id: 2,
-        img: "/product/3.webp",
-        name: "NARS Radiant Creamy Concealer",
+        img:["/product/3/1.jpg","/product/3/2.jpg","/product/3/3.jpg","/product/3/4.jpg","/product/3/5.jpg"],
+        name: "L.A Girl HD Pro Conceal - Buff",
         price: 2850,
         category: ["skin"],
         sale: true,
@@ -118,7 +118,7 @@ export default[
         ]
     },{
         id: 3,
-        img: "/product/4.jpeg",
+        img:["/product/4/1.jpg","/product/4/2.jpg","/product/4/3.jpg","/product/4/4.jpg"],
         name: "Urban Decay Naked3 Eyeshadow Palette",
         price: 4200,
         category: ["eyes"],
@@ -144,7 +144,7 @@ export default[
         ]
     },{
         id: 4,
-        img: "/product/5.jpeg",
+        img:["/product/5/1.webp","/product/5/2.webp","/product/5/3.jpg"],
         name: "Fenty Beauty Pro Filt'r Soft Matte Longwear Foundation",
         price: 3400,
         category: ["skin"],
@@ -170,7 +170,7 @@ export default[
         ]
     },{
         id: 5,
-        img: "/product/6.webp",
+        img:["/product/6/1.webp","/product/6/2.webp","/product/6/3.webp"],
         name: "Anastasia Beverly Hills Brow Wiz",
         price: 2200,
         category: ["brows"],
@@ -196,7 +196,7 @@ export default[
         ]
     },{
         id: 6,
-        img: "/product/7.webp",
+        img:["/product/7/1.webp","/product/7/2.webp","/product/7/3.webp"],
         name: "MAC Cosmetics Ruby Woo Retro Matte Lipstick",
         price: 2800,
         category: ["lipsticks"],
@@ -222,7 +222,7 @@ export default[
         ]
     },{
         id: 7,
-        img: "/product/8.jpg",
+        img:["/product/8/1.jpg","/product/8/2.jpg","/product/8/3.jpg","/product/8/4.jpg"],
         name: "Too Faced Better Than Sex Mascara",
         price: 2500,
         category: ["eyes"],
@@ -248,7 +248,7 @@ export default[
         ]
     },{
         id: 8,
-        img: "/product/9.jpeg",
+        img:["/product/9/1.webp","/product/9/2.webp","/product/9/3.webp","/product/9/4.webp"],
         name: "Huda Beauty Desert Dusk Eyeshadow Palette",
         price: 3800,
         category: ["eyes"],
@@ -274,7 +274,7 @@ export default[
         ]
     },{
         id: 9,
-        img: "/product/10.jpeg",
+        img:["/product/10/1.webp","/product/10/2.webp","/product/10/3.webp","/product/10/4.webp"],
         name: "Benefit Cosmetics Hoola Matte Bronzer",
         price: 2900,
         category: ["skin"],
@@ -298,5 +298,57 @@ export default[
             review: "Great bronzer, but I wish it came in more shades. It works well for me, though."
           }
         ]
-      }   
+    },{
+      id: 10,
+      img:["/product/11/1.jpg","/product/11/2.jpg","/product/11/3.jpg","/product/11/4.jpg"],
+      name: "Maybelline New York Tattoo Brow",
+      price: 629,
+      category: ["brows"],
+      sale: true,
+      star: 5,
+      des: "Explore the entire range of Eye Brow Enhancers available on Nykaa. Shop more Maybelline New York products here.You can browse through the complete world of Maybelline New York Eye Brow Enhancers.",
+      stock: 40,
+      comment: [
+        {
+          id: 0,
+          customer: "Lily",
+          rating: 5,
+          date: "Nov 2, 2023",
+          review: "The Brow Wiz is a must-have for anyone obsessed with perfect brows! It's so easy to use and gives a polished look."
+        },
+        {
+          id: 1,
+          customer: "William",
+          rating: 3,
+          date: "Nov 2, 2023",
+          review: "It's a good eyebrow pencil, but it tends to run out quickly. I wish it lasted longer for the price."
+        }
+      ]
+  },{
+    id: 11,
+    img:["/product/12/1.jpg","/product/12/2.jpg","/product/12/3.jpg","/product/12/4.jpg","/product/12/5.jpg"],
+    name: "Miss Claire Eyebrow Cake Tin - 01",
+    price: 500,
+    category: ["brows"],
+    sale: false,
+    star: 2,
+    des: "Miss Claire presents a one-stop complete brow grooming experience with everything you need for a daily brow fix. The kit comes with three brow powders that complement each other, a brow wax to set your brow hair in place, and an angled brush with a spoolie for perfect application along with a mini tweezer to groom your brow hair. The kit is encased in a sturdy box that makes it travel-friendly as well.",
+    stock: 10,
+    comment: [
+      {
+        id: 0,
+        customer: "Lily",
+        rating: 5,
+        date: "Nov 2, 2023",
+        review: "The Brow Wiz is a must-have for anyone obsessed with perfect brows! It's so easy to use and gives a polished look."
+      },
+      {
+        id: 1,
+        customer: "William",
+        rating: 3,
+        date: "Nov 2, 2023",
+        review: "It's a good eyebrow pencil, but it tends to run out quickly. I wish it lasted longer for the price."
+      }
+    ]
+} 
 ]

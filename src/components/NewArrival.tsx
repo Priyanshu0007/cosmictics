@@ -5,7 +5,7 @@ import Data from "@/utils/productData"
 import ProductCard from './ProductCard';
 interface IProduct{
     id:number;
-    img:string;
+    img:string[];
     name:string;
     price:number;
     star:number;
@@ -40,7 +40,7 @@ const NewArrival = ({setSelectedTab,selectedTab}:any) => {
                 {tabsData.map((text,index)=><li key={text} className={`${selectedTab===index && "text-accent"} cursor-pointer hover:text-accent`} onClick={()=>handleTab(index)}>{text}</li>)}
             </ul>
             <div className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 pt-8'>
-                {data.map((item:IProduct)=><ProductCard key={item.id} id={item.id} img={item.img} name={item.name} price={item.price} star={item.star} sale={item.sale}/>)}
+                {data.map((item:IProduct)=><ProductCard key={item.id} id={item.id} img={item.img[0]} name={item.name} price={item.price} star={item.star} sale={item.sale}/>)}
             </div>
         </div>
     </div>

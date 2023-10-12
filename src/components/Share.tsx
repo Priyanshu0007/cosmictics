@@ -20,7 +20,7 @@ const Share = ({url,title}:typeU) => {
     <div className="flex gap-1 items-center ">
         Share: {" "}
         <div className="flex gap-4 items-center text-[28px] sm:text-[20px]">
-            {/* <FaCopy onClick={copy}/>  */}
+            {/* <FaCopy onClick={copy}/> */}
             <FacebookShareButton url={url} quote={`Checkout ${title}`} hashtag="#muo">
                 <FaFacebook/>
             </FacebookShareButton>

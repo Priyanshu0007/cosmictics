@@ -13,12 +13,12 @@ const ImageSlideShow = ({img}:Img) => {
 		transitionDuration: 500,
 		infinite: true,
 		prevArrow: (
-			<div className="top-full md:top-72">
+			<div className="top-1/2 md:top-72">
 				<AiOutlineArrowLeft className="h-12 w-12 rounded-full text-white opacity-60 bg-black cursor-pointer" />
 			</div>
 		),
 		nextArrow: (
-			<div className="top-full md:top-72">
+			<div className="top-1/2 md:top-72">
 				<AiOutlineArrowRight className="h-12 w-12 rounded-full text-white opacity-60 bg-black cursor-pointer" />
 			</div>
 		),

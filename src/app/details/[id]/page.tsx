@@ -10,8 +10,9 @@ import Comment from '@/components/Comment';
 import { scrollToSection } from '@/utils/helper';
 import Share from '@/components/Share';
 import ImageSlideShow from '@/components/ImageSlideShow';
-import Slideshow from '@/components/SlideShow';
 import ProductCard from '@/components/ProductCard';
+import { useAppDispatch } from '@/redux/hook';
+import { addToCart } from '@/redux/fetaures/cartSlice';
 interface comment{
     id:number;
     customer:string;
@@ -45,7 +46,6 @@ const DetailPage = () => {
         stock:0,
         comment:[],
     })
-    
     useEffect(()=>{
         const id=params.id;
         const getProductData=Data.filter((item)=>item.id.toString()===id)[0];
@@ -68,6 +68,12 @@ const DetailPage = () => {
             default:
                 return <div></div>
         }
+    }
+    const dispatch=useAppDispatch();
+    const addProductTocart=(e:React.FormEvent)=>{
+        e.stopPropagation();
+        const payload={id:productData.id,name:productData.name,img:productData.img[0],price:productData.price,quantity:1}
+        dispatch(addToCart(payload));
     }
     const similarProducts = Data.filter((item) => item.id !== productData.id).filter((item)=>item.category[0]===productData.category[0]);
     similarProducts.splice(2);
@@ -104,7 +110,7 @@ const DetailPage = () => {
                         {productData.des}
                     </p>
                     <p className='text-gray-500 text-[14px]'>{productData.stock} in stock</p>
-                    <button className='uppercase bg-accent py-4 px-4 rounded-lg text-white flex gap-2 items-center hover:bg-black'>
+                    <button onClick={addProductTocart} className='uppercase bg-accent py-4 px-4 rounded-lg text-white flex gap-2 items-center hover:bg-black'>
                         <AiOutlineShoppingCart className="text-[24px]"/>Add to cart
                     </button>   
                     <div className='flex gap-4 items-center uppercase py-4 text-[14px]'>
@@ -127,7 +133,7 @@ const DetailPage = () => {
                     <div className="w-[30px] h-[2px] bg-gray-400" />
                     <h2 id='comment'>Similar Products :</h2>
                     <div className="w-3/4 h-[2px] bg-gray-400" />
-                    <div className='grid md:grid-cols-2'>
+                    <div className='grid gap-6 md:grid-cols-2'>
                         {similarProducts.map((item:IProduct)=><ProductCard key={item.id} id={item.id} img={item.img[0]} name={item.name} price={item.price} star={item.star} sale={item.sale}/>)}
                     </div>
                     <div className="w-[30px] h-[2px] bg-gray-400" />

@@ -9,10 +9,16 @@ import { scrollToSection } from '@/utils/helper';
 import Image from 'next/image';
 const NavBar = ({setShowCart}:any) => {
     const [isOpen,setIsOpen]=useState(false);
-    const cartCount=useAppSelector((state)=>state.cartReducer.length);
+    const cartCount=useAppSelector((state)=>{
+        let quant=0;
+        state.cartReducer.map((item)=>{
+            quant+=item.quantity;    
+        })
+        return quant;
+    });
+    
     const handleNav=()=>{
         setIsOpen(true);
-        
     }
     const menuItemClickHandler = (section:any) => {
         scrollToSection(section);

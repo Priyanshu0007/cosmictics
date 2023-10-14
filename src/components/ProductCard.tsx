@@ -44,10 +44,10 @@ const ProductCard = ({id,img,name,price,star,sale}:IProduct) => {
         <div className='relative'>
             <Image className="w-full h-[35vh]" width={1000} height={1142} src={img} alt={name}/>
             {sale && <div className='bg-green-600 inline-block absolute top-0 left-0 text-[14px] text-white rounded-md px-2 py-[2px] m-4'>New Arrival!</div>}
-            <div className='absolute top-0 left-0 w-full h-full bg-[#00000050] opacity-0 transition-opacity duration-500 group-hover:opacity-100 cursor-pointer'>
-                <div className='absolute bottom-0 mb-4 left-[50%] translate-x-[-50%] flex gap-2'>
-                    <div className='bg-white w-[50px] h-[50px] text-[26px] grid place-items-center'><AiOutlineHeart/></div>
-                    <div className='bg-white w-[50px] h-[50px] text-[26px] grid place-items-center' onClick={addProductTocart}><AiOutlineShoppingCart/></div>
+            <div className='absolute top-0 left-0 w-full h-full sm:bg-[#00000050] sm:opacity-0 sm:transition-opacity sm:duration-500 sm:group-hover:opacity-100 cursor-pointer'>
+                <div className='absolute bottom-0 sm:mb-4 left-[50%] translate-x-[-50%] flex gap-64 sm:gap-2'>
+                    <div className=' bg-gray-100 text-black w-[50px] h-[50px] text-[26px] grid place-items-center'><AiOutlineHeart/></div>
+                    <div className=' bg-gray-100 text-black w-[50px] h-[50px] text-[26px] grid place-items-center' onClick={addProductTocart}><AiOutlineShoppingCart/></div>
                 </div>
             </div>
         </div>

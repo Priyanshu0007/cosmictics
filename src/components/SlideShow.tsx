@@ -14,12 +14,12 @@ const Slideshow = () => {
 		infinite: true,
 		prevArrow: (
 			<div className="top-full md:top-72">
-				<AiOutlineArrowLeft className="h-8 w-8 text-white opacity-60 bg-black cursor-pointer" />
+				<AiOutlineArrowLeft className="h-8 w-8 rounded-full sm:h-12 sm:w-12 text-white opacity-60 bg-black cursor-pointer" />
 			</div>
 		),
 		nextArrow: (
 				<div className="top-full md:top-72">
-				   <AiOutlineArrowRight className="h-8 w-8 text-white opacity-60 bg-black cursor-pointer" />
+				   <AiOutlineArrowRight className="h-8 w-8 rounded-full sm:h-12 sm:w-12 text-white opacity-60 bg-black cursor-pointer" />
 			    </div>
 		),
 	};

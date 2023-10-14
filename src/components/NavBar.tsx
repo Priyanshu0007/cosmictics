@@ -7,7 +7,12 @@ import {RiShoppingBagLine} from "react-icons/ri";
 import { useAppSelector } from '@/redux/hook';
 import { scrollToSection } from '@/utils/helper';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 const NavBar = ({setShowCart}:any) => {
+    const path = usePathname();
+    const router =useRouter();
+    
     const [isOpen,setIsOpen]=useState(false);
     const cartCount=useAppSelector((state)=>{
         let quant=0;
@@ -21,6 +26,7 @@ const NavBar = ({setShowCart}:any) => {
         setIsOpen(true);
     }
     const menuItemClickHandler = (section:any) => {
+        if(path.length>3){router.push(`/#${section}`)}
         scrollToSection(section);
         setIsOpen(false);
     };

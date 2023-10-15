@@ -13,6 +13,7 @@ import ImageSlideShow from '@/components/ImageSlideShow';
 import ProductCard from '@/components/ProductCard';
 import { useAppDispatch } from '@/redux/hook';
 import { addToCart } from '@/redux/fetaures/cartSlice';
+import { addToFav } from '@/redux/fetaures/favSlice';
 interface comment{
     id:number;
     customer:string;
@@ -70,6 +71,11 @@ const DetailPage = () => {
         }
     }
     const dispatch=useAppDispatch();
+    const addProductToFav=(e:React.FormEvent)=>{
+        e.stopPropagation();
+        const payload={id:productData.id,name:productData.name,img:productData.img[0],price:productData.price};
+        dispatch(addToFav(payload));
+    }
     const addProductTocart=(e:React.FormEvent)=>{
         e.stopPropagation();
         const payload={id:productData.id,name:productData.name,img:productData.img[0],price:productData.price,quantity:1}
@@ -114,10 +120,10 @@ const DetailPage = () => {
                         <AiOutlineShoppingCart className="text-[24px]"/>Add to cart
                     </button>   
                     <div className='flex gap-4 items-center uppercase py-4 text-[14px]'>
-                        <div className='flex gap-1 items-center'>
-                            <AiOutlineHeart/>Add to wishlist
+                        <div className='flex gap-1 items-center cursor-pointer' onClick={addProductToFav}>
+                            <AiOutlineHeart/>Add to favourite
                         </div>
-                        <div className='flex gap-1 items-center'>
+                        <div className='flex gap-1 items-center cursor-pointer'>
                             <MdCompareArrows/>Compare
                         </div>
                     </div>

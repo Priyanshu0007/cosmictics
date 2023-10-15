@@ -7,13 +7,17 @@ import {RiShoppingBagLine} from "react-icons/ri";
 import { useAppSelector } from '@/redux/hook';
 import { scrollToSection } from '@/utils/helper';
 import Image from 'next/image';
+import {AiFillHeart} from "react-icons/ai"
 import { usePathname } from 'next/navigation';
 import { useRouter } from 'next/navigation';
-const NavBar = ({setShowCart}:any) => {
+const NavBar = ({setShowCart,setShowFav}:any) => {
     const path = usePathname();
     const router =useRouter();
     
     const [isOpen,setIsOpen]=useState(false);
+    const favCount=useAppSelector((state)=>{
+        return state.favReducer.length;
+    })
     const cartCount=useAppSelector((state)=>{
         let quant=0;
         state.cartReducer.map((item)=>{
@@ -45,11 +49,14 @@ const NavBar = ({setShowCart}:any) => {
             </ul>
             
             <div className='flex gap-6 text-[26px]'>
-                <div onClick={()=>setShowCart(true)} className='relative cursor-pointer'>
+                <div onClick={()=>setShowFav(true)} className='relative cursor-pointer hover:text-accent'>
+                    <AiFillHeart/>
+                    <div className='absolute top-[-15px] right-[-10px] bg-red-600 w-[25px] h-[25px] rounded-full text-white text-[14px] grid place-items-center'>{favCount}</div>
+                </div>
+                <div onClick={()=>setShowCart(true)} className='relative cursor-pointer hover:text-accent'>
                     <RiShoppingBagLine/>
                     <div className='absolute top-[-15px] right-[-10px] bg-red-600 w-[25px] h-[25px] rounded-full text-white text-[14px] grid place-items-center'>{cartCount}</div>
                 </div>
-                {/* <BiSearchAlt2/> */}
             </div>
         </div>
         {isOpen?  <ul className='gap-6 flex flex-col justify-around'>

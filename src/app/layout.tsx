@@ -8,6 +8,7 @@ import { Provider } from 'react-redux'
 import { store } from '@/redux/store'
 import { useState } from 'react'
 import Cart from '@/components/Cart'
+import Fav from '@/components/Fav'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -22,6 +23,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   const [showCart,setShowCart]=useState(false);
+  const [showFav,setShowFav]=useState(false);
   return (
     <html lang="en">
       <head>
@@ -30,8 +32,9 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         <Provider store={store}>
-        <NavBar setShowCart={setShowCart}/>
+        <NavBar setShowCart={setShowCart} setShowFav={setShowFav}/>
         {showCart && <Cart setShowCart={setShowCart}/>}
+        {showFav && <Fav setFavFav={setShowFav}/>}
         {children}
         <Footer/>
         </Provider>

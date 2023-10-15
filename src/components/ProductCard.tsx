@@ -1,4 +1,5 @@
 import { addToCart } from '@/redux/fetaures/cartSlice';
+import { addToFav } from '@/redux/fetaures/favSlice';
 import { useAppDispatch } from '@/redux/hook';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
@@ -15,6 +16,11 @@ interface IProduct{
 const ProductCard = ({id,img,name,price,star,sale}:IProduct) => {
     const router=useRouter();
     const dispatch=useAppDispatch();
+    const addProductToFav=(e:React.FormEvent)=>{
+        e.stopPropagation();
+        const payload={id,name,img,price};
+        dispatch(addToFav(payload));
+    }
     const addProductTocart=(e:React.FormEvent)=>{
         e.stopPropagation();
         const payload={id,name,img,price,quantity:1}
@@ -46,8 +52,8 @@ const ProductCard = ({id,img,name,price,star,sale}:IProduct) => {
             {sale && <div className='bg-green-600 inline-block absolute top-0 left-0 text-[14px] text-white rounded-md px-2 py-[2px] m-4'>New Arrival!</div>}
             <div className='absolute top-0 left-0 w-full h-full sm:bg-[#00000050] sm:opacity-0 sm:transition-opacity sm:duration-500 sm:group-hover:opacity-100 cursor-pointer'>
                 <div className='absolute bottom-0 sm:mb-4 left-[50%] translate-x-[-50%] flex gap-64 sm:gap-2'>
-                    <div className=' bg-gray-100 text-black w-[50px] h-[50px] text-[26px] grid place-items-center'><AiOutlineHeart/></div>
-                    <div className=' bg-gray-100 text-black w-[50px] h-[50px] text-[26px] grid place-items-center' onClick={addProductTocart}><AiOutlineShoppingCart/></div>
+                    <div className=' bg-gray-100 text-black w-[50px] h-[50px] text-[26px] grid place-items-center hover:text-accent' onClick={addProductToFav}><AiOutlineHeart/></div>
+                    <div className=' bg-gray-100 text-black w-[50px] h-[50px] text-[26px] grid place-items-center hover:text-accent' onClick={addProductTocart}><AiOutlineShoppingCart/></div>
                 </div>
             </div>
         </div>

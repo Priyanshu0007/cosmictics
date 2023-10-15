@@ -14,7 +14,6 @@ interface IProduct{
 const whisper=Whisper({subsets:["latin"],weight:["400"]});
 const tabsData=["All","Skin","Lipsticks","Brows","Eyes"];
 const NewArrival = ({setSelectedTab,selectedTab}:any) => {
-    
     const [data,setData]=useState([]);
     const shuffleArray=(array:any)=>{
         return array
@@ -32,6 +31,7 @@ const NewArrival = ({setSelectedTab,selectedTab}:any) => {
         setData(shuffleArray(filterData));
     }
     useEffect(()=>{handleTab(selectedTab)},[selectedTab])
+    
   return (
     <div id="shop" className='container pt-32'>
         <div className='text-center'>

@@ -18,17 +18,17 @@ const CartProduct:React.FC<propsType>=({id,img,name,price,quantity,})=>{
             <img className='h-[80px] flex-wrap w-cover' src={img} alt={name}/>
             <div className='space-y-2 w-full'>
                 <h3 className='font-medium'>{name}</h3>
-                <div className='flex justify-between'>
+                <div className='flex justify-between gap-5'>
                     <p className='text-gray-600 text-[14px]'>{quantity} x ₹{price}</p>
                     <p className='flex justify-around text-[18px] top-0 mr-2 gap-2'>
                         <AiOutlineMinusCircle className="text-[24px]" onClick={()=>dispatch(reduceQ(id))}/>
                         {quantity}
                         <AiOutlinePlusCircle className="text-[24px]" onClick={()=>dispatch(increaseQ(id))}/>
+                        <RxCross1 className="cursor-pointer text-[20px]" onClick={()=>dispatch(removeFromCart(id))}/>
                     </p>
                 </div>
             </div>
         </div>
-        <RxCross1 className="cursor-pointer text-[14px]" onClick={()=>dispatch(removeFromCart(id))}/>
     </div>
   )
 }

@@ -49,7 +49,7 @@ const page = () => {
     similarBlog.splice(3);
     
   return (
-    <div className='pt-8'>
+    <div className='pt-8 select-none'>
          <div className='bg-gray-100 py-4'>
             <div className='container flex gap-4 items-center text-gray-500'>
                 <Link href="/" className='cursor-pointer hover:text-accent'>Home</Link>

@@ -3,7 +3,7 @@ import { useParams } from 'next/navigation';
 import React, { useEffect, useState } from 'react'
 import Data from "@/utils/productData"
 import Link from 'next/link';
-import { AiFillStar, AiOutlineHeart, AiOutlineShoppingCart, AiOutlineStar } from 'react-icons/ai';
+import { AiFillHeart, AiFillStar, AiOutlineHeart, AiOutlineShoppingCart, AiOutlineStar } from 'react-icons/ai';
 
 import {MdCompareArrows} from 'react-icons/md'
 import Comment from '@/components/Comment';
@@ -14,6 +14,8 @@ import ProductCard from '@/components/ProductCard';
 import { useAppDispatch } from '@/redux/hook';
 import { addToCart } from '@/redux/fetaures/cartSlice';
 import { addToFav } from '@/redux/fetaures/favSlice';
+import { RxCross1 } from 'react-icons/rx';
+import Compare from '@/components/Compare';
 interface comment{
     id:number;
     customer:string;
@@ -34,6 +36,8 @@ interface IProduct{
     comment:comment[];
 }
 const DetailPage = () => {
+    const [fav,setFav]=useState(false);
+    const [close,setClose]=useState(false);
     const params=useParams();
     const [productData,setProductData]=useState<IProduct>({
         id:0,
@@ -75,6 +79,7 @@ const DetailPage = () => {
         e.stopPropagation();
         const payload={id:productData.id,name:productData.name,img:productData.img[0],price:productData.price};
         dispatch(addToFav(payload));
+        setFav(!fav);
     }
     const addProductTocart=(e:React.FormEvent)=>{
         e.stopPropagation();
@@ -83,9 +88,8 @@ const DetailPage = () => {
     }
     const similarProducts = Data.filter((item) => item.id !== productData.id).filter((item)=>item.category[0]===productData.category[0]);
     similarProducts.splice(2);
-    
   return (
-    <div className='pt-8 '>
+    <div className='pt-8 select-none'>
         <div className='bg-gray-100 py-4'>
             <div className='container flex gap-4 items-center text-gray-500'>
                 <Link href="/" className='cursor-pointer hover:text-accent'>Home</Link>
@@ -121,9 +125,11 @@ const DetailPage = () => {
                     </button>   
                     <div className='flex gap-4 items-center uppercase py-4 text-[14px]'>
                         <div className='flex gap-1 items-center cursor-pointer' onClick={addProductToFav}>
-                            <AiOutlineHeart/>Add to favourite
+                            {!fav && <AiOutlineHeart/>}
+                            {fav && <AiFillHeart className="text-accent"/>}
+                            Add to favourite
                         </div>
-                        <div className='flex gap-1 items-center cursor-pointer'>
+                        <div className='flex gap-1 items-center cursor-pointer' onClick={()=>setClose(true)}>
                             <MdCompareArrows/>Compare
                         </div>
                     </div>
@@ -149,7 +155,15 @@ const DetailPage = () => {
                 </div>
             </div>
         </div>
-        
+        {close && <div className='z-10 md:backdrop-blur-lg fixed top-[60%] left-[50%] translate-x-[-50%] translate-y-[-50%] bg-gray-50 w-full h-fit space-y-3 lg:space-y-6 md:w-4/5 md:h-fit p-6 md:space-y-8'>
+            <div className='flex justify-around gap-5'>
+                <Compare name={productData.name} img={productData.img[0]} rating={productData.star} price={productData.price} id={productData.id} main={true} />
+                <Compare name={similarProducts[0].name} img={similarProducts[0].img[0]} rating={similarProducts[0].star} price={similarProducts[0].price} id={similarProducts[0].id} main={false}/>
+                <Compare name={similarProducts[1].name} img={similarProducts[1].img[0]} rating={similarProducts[1].star} price={similarProducts[1].price} id={similarProducts[1].id} main={false}/>
+            </div>
+            
+            <div onClick={()=>setClose(false)} className='absolute top-[-7px] md:top-[-20px] right-[10px] bg-red-600 hover:bg-red-800 w-[30px] h-[30px] text-white text-[14px] grid place-items-center'><RxCross1/></div>
+        </div>}
     </div>
   )
 }

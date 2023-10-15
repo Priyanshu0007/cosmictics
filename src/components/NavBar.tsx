@@ -1,6 +1,6 @@
 "use client"
 import Link from 'next/link';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {IoMdClose} from "react-icons/io";
 import {CgMenuRight} from "react-icons/cg"
 import {RiShoppingBagLine} from "react-icons/ri";
@@ -13,7 +13,6 @@ import { useRouter } from 'next/navigation';
 const NavBar = ({setShowCart,setShowFav}:any) => {
     const path = usePathname();
     const router =useRouter();
-    
     const [isOpen,setIsOpen]=useState(false);
     const favCount=useAppSelector((state)=>{
         return state.favReducer.length;
@@ -34,9 +33,8 @@ const NavBar = ({setShowCart,setShowFav}:any) => {
         scrollToSection(section);
         setIsOpen(false);
     };
-
+    
   return (
-    <>
     <div className='bg-white z-40 py-4 sticky top-0'>
         <div className='container flex justify-between items-center'>
             {isOpen? <IoMdClose onClick={()=>setIsOpen(false)} className="sm:hidden text-[26px]"/> : <CgMenuRight onClick={handleNav} className="sm:hidden text-[26px]"/>}
@@ -49,7 +47,7 @@ const NavBar = ({setShowCart,setShowFav}:any) => {
             </ul>
             
             <div className='flex gap-6 text-[26px]'>
-                <div onClick={()=>setShowFav(true)} className='relative cursor-pointer hover:text-accent'>
+                <div onClick={()=>setShowFav(true)} className={`relative cursor-pointer hover:text-accent`}>
                     <AiFillHeart/>
                     <div className='absolute top-[-15px] right-[-10px] bg-red-600 w-[25px] h-[25px] rounded-full text-white text-[14px] grid place-items-center'>{favCount}</div>
                 </div>
@@ -67,8 +65,6 @@ const NavBar = ({setShowCart,setShowFav}:any) => {
         </ul>:""}
         {isOpen && <div className='z-30  w-full  backdrop-blur' />}
     </div>
-     
-    </>
   )
 }
 

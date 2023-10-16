@@ -16,7 +16,7 @@ const CategoryCard = ({img,type,quantity,id,setSelectedTab}:propsType) => {
     setSelectedTab(id);
 };
   return (
-    <div className='space-y-4' onClick={() => menuItemClickHandler(id)}>
+    <div className='space-y-4 cursor-pointer hover:scale-105 transition-transform' onClick={() => menuItemClickHandler(id)}>
         <Image className='rounded-full border-4 md:border-8 border-white' src={img} width={250} height={250} alt={type} />
         <div>
             <h2 className='text-[14px] md:text-xl font-medium'>{type}</h2>

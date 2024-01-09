@@ -10,7 +10,7 @@ const Slideshow = () => {
 	const zoomInProperties = {
 		scale: 1,
 		duration: 1700,
-		transitionDuration: 400,
+		transitionDuration: 1000,
 		infinite: true,
 		prevArrow: (
 			<div className="top-full md:top-72">

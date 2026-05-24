@@ -10,28 +10,28 @@ interface ICom{
 const getRating=(innn:number)=>{
     switch (innn) {
         case 0:
-            return(<div className='flex justify-center text-accent '><AiOutlineStar/><AiOutlineStar/><AiOutlineStar/><AiOutlineStar/><AiOutlineStar/></div>)
+            return(<span className='flex justify-center text-accent '><AiOutlineStar/><AiOutlineStar/><AiOutlineStar/><AiOutlineStar/><AiOutlineStar/></span>)
         case 1:
-            return(<div className='flex justify-center text-accent '><AiFillStar/><AiOutlineStar/><AiOutlineStar/><AiOutlineStar/><AiOutlineStar/></div>)
+            return(<span className='flex justify-center text-accent '><AiFillStar/><AiOutlineStar/><AiOutlineStar/><AiOutlineStar/><AiOutlineStar/></span>)
         case 2:
-            return(<div className='flex justify-center text-accent '><AiFillStar/><AiFillStar/><AiOutlineStar/><AiOutlineStar/><AiOutlineStar/></div>)
+            return(<span className='flex justify-center text-accent '><AiFillStar/><AiFillStar/><AiOutlineStar/><AiOutlineStar/><AiOutlineStar/></span>)
         case 3:
-            return(<div className='flex justify-center text-accent '><AiFillStar/><AiFillStar/><AiFillStar/><AiOutlineStar/><AiOutlineStar/></div>)
+            return(<span className='flex justify-center text-accent '><AiFillStar/><AiFillStar/><AiFillStar/><AiOutlineStar/><AiOutlineStar/></span>)
         case 4:
-            return(<div className='flex justify-center text-accent '><AiFillStar/><AiFillStar/><AiFillStar/><AiFillStar/><AiOutlineStar/></div>)
+            return(<span className='flex justify-center text-accent '><AiFillStar/><AiFillStar/><AiFillStar/><AiFillStar/><AiOutlineStar/></span>)
         case 5:
-            return(<div className='flex justify-center text-accent '><AiFillStar/><AiFillStar/><AiFillStar/><AiFillStar/><AiFillStar/></div>)
+            return(<span className='flex justify-center text-accent '><AiFillStar/><AiFillStar/><AiFillStar/><AiFillStar/><AiFillStar/></span>)
         default:
-            return <div></div>
+            return <span></span>
     }
 }
 const Comment = ({name,date,comment,rating}:ICom) => {
   return (
     <div className='mt-2'>
         <div className='flex justify-between mt-1'>
-            <p className='text-gray-500'>{name}</p>
-            <p>{getRating(rating)}</p>
-            <p className='text-gray-500'>{date}</p>
+            <span className='text-gray-500'>{name}</span>
+            <span>{getRating(rating)}</span>
+            <span className='text-gray-500'>{date}</span>
         </div>
         <p>
             {comment}

@@ -111,21 +111,20 @@ const page = () => {
         date:"",
         comments:[],
     })
+    const [shareUrl, setShareUrl] = useState("");
+
     useEffect(()=>{
         const id=params.id;
         const getBlogData=Data.filter((item)=>item.id.toString()===id)[0];
         setBlogData(getBlogData);
-    })
+        setShareUrl(window.location.href);
+    },[params.id])
     
-    function convertStringToHTML(blog: string):HTMLBodyElement{
-        const body = document.createElement('body');
-        body.innerHTML = blog;
-        return body;
-    }
-    const htmlBody=convertStringToHTML(blogData.blog_content_html);
-    let similarBlog = Data.filter((item) => item.id !== blogData.id);
-    similarBlog=shuffleArray(similarBlog)
-    similarBlog.splice(2);
+    const similarBlog = React.useMemo(() => {
+        let list = Data.filter((item) => item.id !== blogData.id);
+        list = shuffleArray(list);
+        return list.slice(0, 2);
+    }, [blogData.id]);
     
   return (
     <div className='pt-8 select-none'>
@@ -145,13 +144,13 @@ const page = () => {
                         <div className='flex items-center text-accent'>
                             <p onClick={()=>scrollToSection("comment")} className='text-gray-400 text-[13px] ml-2 hover:text-accent cursor-pointer'>({blogData.comments.length} {`comment${blogData.comments.length>1?'s':''}`})</p>
                         </div>
-                        <Share url={window.location.href} title={blogData.title}/>
+                        <Share url={shareUrl} title={blogData.title}/>
                     </div>
                     <div className='text-[#161616] space-y-6'>
                         <h2 className='text-3xl font-semibold'>{blogData?.title}</h2>
                     </div>
                     <div className='text-gray-500 text-[18px]'>
-                        <div dangerouslySetInnerHTML={{ __html: htmlBody.innerHTML }} />
+                        <div dangerouslySetInnerHTML={{ __html: blogData.blog_content_html }} />
                     </div>
                     <div className='hidden md:block'>
                         <h2 id="comment">Comments :</h2>
@@ -162,11 +161,11 @@ const page = () => {
                     </div>
                 </div>
                 <div className='flex flex-col space-y-4'>
-                    <img className='w-full ' src={blogData?.img}  alt={blogData?.title}/>
+                    {blogData?.img && <img className='w-full ' src={blogData.img}  alt={blogData?.title}/>}
                     <div className="w-3/4 h-[2px] bg-gray-400" />
                     <div className='flex justify-between'>
-                        <p className='flex'>Author: <div className='text-accent'>{blogData?.author}</div></p>
-                        <p className='flex'>Published On: <div className='text-accent'>{blogData?.date}</div></p>
+                        <div className='flex gap-1'>Author: <span className='text-accent'>{blogData?.author}</span></div>
+                        <div className='flex gap-1'>Published On: <span className='text-accent'>{blogData?.date}</span></div>
                     </div>
                     <div className="w-1/2 h-[2px] bg-gray-400" />
                     <div>

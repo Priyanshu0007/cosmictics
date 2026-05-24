@@ -1,8 +1,6 @@
 import React from 'react';
-import { Whisper } from 'next/font/google';
 import Image from 'next/image';
 import CategoryCard from './CategoryCard';
-const whisper=Whisper({subsets:["latin"],weight:["400"]});
 const data=[
     {
         id:2,

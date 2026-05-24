@@ -1,9 +1,16 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-@layer components{
-  .navLink{
-    @apply text-[18px] hover:text-accent
-  }
+@theme {
+  --color-accent: #EC2D9E;
+}
+
+@utility container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+@utility navLink {
+  @apply text-[18px] hover:text-accent;
 }

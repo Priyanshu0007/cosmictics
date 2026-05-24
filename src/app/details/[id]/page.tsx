@@ -51,11 +51,13 @@ const DetailPage = () => {
         stock:0,
         comment:[],
     })
+    const [shareUrl, setShareUrl] = useState("");
     useEffect(()=>{
         const id=params.id;
         const getProductData=Data.filter((item)=>item.id.toString()===id)[0];
         setProductData(getProductData);
-    })
+        setShareUrl(window.location.href);
+    },[params.id])
     const getRating=()=>{
         switch (productData.star) {
             case 0:
@@ -110,7 +112,7 @@ const DetailPage = () => {
                             {getRating()}
                             <p onClick={()=>scrollToSection("comment")} className='text-gray-400 text-[13px] ml-2 hover:text-accent cursor-pointer'>({productData.comment.length} customer review)</p>
                         </div>
-                        <Share url={window.location.href} title={productData.name}/>
+                        <Share url={shareUrl} title={productData.name}/>
                 </div>
                     <div className='text-[#161616] space-y-6'>
                         <h2 className='text-3xl font-semibold'>{productData?.name}</h2>

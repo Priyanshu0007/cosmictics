@@ -2,7 +2,6 @@
 import NavBar from '@/components/NavBar'
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import Footer from '@/components/Footer'
 import { Provider } from 'react-redux'
 import { store } from '@/redux/store'
@@ -12,7 +11,7 @@ import Fav from '@/components/Fav'
 import {PersistGate} from "redux-persist/integration/react";
 import { persistStore } from 'redux-persist';
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = { className: 'font-sans' }
 let persistor=persistStore(store);
 const metadata: Metadata = {
   title: 'Cosmictics',

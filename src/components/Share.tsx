@@ -21,7 +21,7 @@ const Share = ({url,title}:typeU) => {
         Share: {" "}
         <div className="flex gap-4 items-center text-[28px] sm:text-[20px]">
             {/* <FaCopy onClick={copy}/> */}
-            <FacebookShareButton url={url} quote={`Checkout ${title}`} hashtag="#muo">
+            <FacebookShareButton url={url} hashtag="#muo">
                 <FaFacebook/>
             </FacebookShareButton>
             <WhatsappShareButton url={url} title={`Checkout ${title}`} separator={"#muo"}>

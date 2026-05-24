@@ -1,6 +1,5 @@
 'use client'
 import React, { useEffect, useState } from 'react'
-import { Whisper } from 'next/font/google'
 import Data from "@/utils/productData"
 import ProductCard from './ProductCard';
 interface IProduct{
@@ -11,7 +10,7 @@ interface IProduct{
     star:number;
     sale:boolean|undefined;
 }
-const whisper=Whisper({subsets:["latin"],weight:["400"]});
+const whisper = { className: 'italic font-serif' };
 const tabsData=["All","Skin","Lipsticks","Brows","Eyes"];
 const NewArrival = ({setSelectedTab,selectedTab}:any) => {
     const [data,setData]=useState([]);

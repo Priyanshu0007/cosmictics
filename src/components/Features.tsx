@@ -1,35 +1,43 @@
 import React from 'react'
 import FeaturesCard from './FeaturesCard'
 
-const data=[
+const data = [
     {
-        img:"/feature/sls.png",
-        title:"SLS Free",
-        desc:"SLS Free"
+        img: "/feature/sls.png",
+        title: "SLS Free",
+        desc: "Safe & clean formula"
     },
     {
-        img:"/feature/fda.png",
-        title:"FDA Approved",
-        desc:"Natural and organic products",
+        img: "/feature/fda.png",
+        title: "FDA Approved",
+        desc: "Natural & organic products",
     },
     {
-        img:"/feature/dermo.png",
-        title:"Lab Tested",
-        desc:"Safe Products",
+        img: "/feature/dermo.png",
+        title: "Lab Tested",
+        desc: "Safe & dermatologist certified",
     },
     {
-        img:"/feature/plastic.png",
-        title:"Plastic Free",
-        desc:"Environmental Friendly",
+        img: "/feature/plastic.png",
+        title: "Plastic Free",
+        desc: "Eco-friendly packaging",
     }
 ]
+
 const Features = () => {
   return (
-    <div className='container pt-16'>
-        <div className='grid md:grid-cols-3 gap-y-8 lg:gap-4 lg:grid-cols-4 gap-4'>
-            {data.map(item=><FeaturesCard key={item.title} img={item.img} title={item.title} desc={item.desc}/>)}
+    <section className='container pt-16 relative'>
+        <div className='glass-card rounded-3xl border border-white/5 p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 shadow-xl shadow-black/40'>
+            {data.map(item => (
+                <FeaturesCard 
+                    key={item.title} 
+                    img={item.img} 
+                    title={item.title} 
+                    desc={item.desc}
+                />
+            ))}
         </div>
-    </div>
+    </section>
   )
 }
 

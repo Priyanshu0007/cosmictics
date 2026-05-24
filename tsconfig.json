@@ -25,6 +25,12 @@
     "paths": {
       "@/*": [
         "./src/*"
+      ],
+      "redraw": [
+        "./src/redraw_mock/index.ts"
+      ],
+      "react-redraw": [
+        "./src/redraw_mock/react.tsx"
       ]
     }
   },

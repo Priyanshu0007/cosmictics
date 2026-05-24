@@ -1,41 +1,63 @@
 import { addToCart } from '@/redux/fetaures/cartSlice';
-import {removeFromFav} from "@/redux/fetaures/favSlice"
+import { removeFromFav } from "@/redux/fetaures/favSlice"
 import { useAppDispatch } from '@/redux/hook';
 import React from 'react'
 import { RxCross1 } from 'react-icons/rx';
-import { AiOutlineShoppingCart} from "react-icons/ai"
-interface propsType{
-    id:number;
-    img:string;
-    name:string;
-    price:number;
+import { AiOutlineShoppingCart } from "react-icons/ai"
+
+interface propsType {
+    id: number;
+    img: string;
+    name: string;
+    price: number;
 }
-const FavProduct:React.FC<propsType>=({id,img,name,price})=>{
-    const dispatch=useAppDispatch();
-    const addProductTocart=(e:React.FormEvent)=>{
+
+const FavProduct: React.FC<propsType> = ({ id, img, name, price }) => {
+    const dispatch = useAppDispatch();
+    
+    const addProductTocart = (e: React.FormEvent) => {
         e.stopPropagation();
-        const payload={id,name,img,price,quantity:1}
+        const payload = { id, name, img, price, quantity: 1 }
         dispatch(addToCart(payload));
         dispatch(removeFromFav(id));
     }
-  return (
-    <div className='flex justify-between items-center'>
-        <div className='flex items-center gap-4'>
-            <img className='h-[80px] flex-wrap w-cover' src={img} alt={name}/>
-            <div className='space-y-2 w-full'>
-                <h3 className='font-medium'>{name}</h3>
-                <div className='flex justify-between'>
-                    <p className='text-gray-600 text-[14px]'>₹{price}</p>
-                    <p className='flex flex-2 justify-between text-[18px] top-0 mr-2 gap-2'>
-                    <div className=' bg-gray-100 text-black w-[30px] h-[30px] text-[26px] grid place-items-center hover:text-accent' onClick={addProductTocart}><AiOutlineShoppingCart/></div>
-                    <RxCross1 className="cursor-pointer text-[30px]" onClick={()=>dispatch(removeFromFav(id))}/>
+
+    return (
+        <div className='flex gap-4 items-center justify-between py-2'>
+            <div className='flex items-center gap-4 flex-1 min-w-0'>
+                <div className='w-16 h-16 rounded-xl overflow-hidden bg-obsidian border border-white/5 flex-shrink-0'>
+                    <img className='w-full h-full object-cover' src={img} alt={name} />
+                </div>
+                <div className='space-y-1.5 flex-1 min-w-0'>
+                    <h4 className='font-medium text-sm text-white truncate hover:text-accent cursor-pointer transition-colors duration-200'>
+                        {name}
+                    </h4>
+                    <p className='text-accent-teal text-xs font-semibold'>
+                        ₹{price}
                     </p>
                 </div>
             </div>
+            
+            {/* Quick Actions */}
+            <div className='flex items-center gap-3 ml-2'>
+                <button 
+                    onClick={addProductTocart} 
+                    className='w-8 h-8 rounded-lg bg-obsidian hover:bg-accent-teal text-gray-300 hover:text-obsidian border border-white/10 hover:border-accent-teal flex items-center justify-center transition-all duration-200 cursor-pointer shadow-md'
+                    title="Add to Shopping Bag"
+                >
+                    <AiOutlineShoppingCart className="text-sm" />
+                </button>
+                
+                <button 
+                    onClick={() => dispatch(removeFromFav(id))} 
+                    className="text-gray-500 hover:text-red-400 p-1.5 transition-colors duration-200 cursor-pointer"
+                    title="Remove from favorites"
+                >
+                    <RxCross1 className="text-sm" />
+                </button>
+            </div>
         </div>
-        
-    </div>
-  )
+    )
 }
 
 export default FavProduct

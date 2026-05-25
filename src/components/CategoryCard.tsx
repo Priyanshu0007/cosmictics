@@ -1,7 +1,8 @@
 'use client'
 import { scrollToSection } from '@/utils/helper';
 import Image from 'next/image';
-import React from 'react'
+import React, { useState } from 'react'
+import RedrawCircleBorder from './RedrawCircleBorder';
 
 interface propsType {
     id: number;
@@ -12,6 +13,7 @@ interface propsType {
 }
 
 const CategoryCard = ({ img, type, quantity, id, setSelectedTab }: propsType) => {
+  const [isHovered, setIsHovered] = useState(false);
   const menuItemClickHandler = (id: number) => {
     scrollToSection("shop");
     setSelectedTab(id);
@@ -21,8 +23,11 @@ const CategoryCard = ({ img, type, quantity, id, setSelectedTab }: propsType) =>
     <div 
         className='space-y-4 cursor-pointer group flex flex-col items-center' 
         onClick={() => menuItemClickHandler(id)}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
     >
         <div className='relative w-[130px] h-[130px] md:w-[180px] md:h-[180px] rounded-full overflow-hidden border-2 border-white/10 group-hover:border-accent shadow-lg shadow-black/45 group-hover:scale-105 transition-all duration-300'>
+            <RedrawCircleBorder hovered={isHovered} />
             <Image 
                 className='w-full h-full object-cover group-hover:scale-110 transition-transform duration-500' 
                 src={img} 

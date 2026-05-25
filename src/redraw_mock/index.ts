@@ -161,16 +161,19 @@ export class Canvas {
 
     ctx.save();
     
-    // Scale and center the drawing within canvas bounding box
-    // Simple parsing of viewBox from path bounds or just hardcode center fit
-    // Most Redraw paths are around 600-800px wide. We will fit them to the maxWidth option
-    const maxWidth = node.pathGeo.options.maxWidth || 800;
-    const scale = Math.min(canvasWidth / maxWidth, 1.0) * 0.95;
+    const maxWidth = node.pathGeo.options && node.pathGeo.options.maxWidth || 800;
     
-    // Center alignment
-    ctx.translate(canvasWidth / 2, canvasHeight / 2);
-    ctx.scale(scale, scale);
-    ctx.translate(-maxWidth / 2, -200); // offset to center drawing origin
+    if (node.pathGeo.options && node.pathGeo.options.absolute) {
+      // Scale by device pixel ratio to match CSS pixels coordinate system
+      ctx.scale(this.dpr, this.dpr);
+    } else {
+      const scale = Math.min(canvasWidth / maxWidth, 1.0) * 0.95;
+      
+      // Center alignment
+      ctx.translate(canvasWidth / 2, canvasHeight / 2);
+      ctx.scale(scale, scale);
+      ctx.translate(-maxWidth / 2, -200); // offset to center drawing origin
+    }
 
     // For each stroke in brush
     brush.strokes.forEach((stroke: any) => {

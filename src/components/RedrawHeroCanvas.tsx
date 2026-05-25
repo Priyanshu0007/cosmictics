@@ -82,14 +82,20 @@ export default function RedrawHeroCanvas() {
     );
   }
 
-  // Elegant cosmetic curves
+  // Elegant cosmetic curves (doubled count to 6 for double density rendering)
   const curves = [
     // Primary flow curve
     "M13.6 247.8C13.6 247.8 120.5 150.2 250.2 180.5C400.4 210.8 450.6 80.2 600.2 140.5C720.6 190.2 800.5 240.2 920.3 160.8",
     // Secondary secondary swirl
     "M50.2 350.5C180.6 250.2 320.2 420.5 480.3 300.2C640.4 180.2 700.5 380.2 880.6 250.5",
     // Delicate accent wave
-    "M100.8 150.2C220.4 280.5 380.2 180.2 520.6 290.5C680.5 420.2 780.4 220.2 900.2 320.8"
+    "M100.8 150.2C220.4 280.5 380.2 180.2 520.6 290.5C680.5 420.2 780.4 220.2 900.2 320.8",
+    // Counter wave 1
+    "M10.2 180.5C140.6 290.2 280.2 90.5 420.3 220.2C560.4 350.2 680.5 150.2 900.6 280.5",
+    // Counter wave 2
+    "M90.8 380.2C250.4 180.5 390.2 320.2 550.6 190.5C710.5 60.2 810.4 280.2 930.2 120.8",
+    // Base flow wave
+    "M30.6 120.8C200.2 80.5 320.6 240.2 480.2 160.5C620.6 90.2 760.5 310.2 910.3 220.8"
   ];
 
   const palette = [
@@ -113,11 +119,11 @@ export default function RedrawHeroCanvas() {
       
       const brush = new SingleStrokeBrush();
       // Set gradient and glow effects
-      const strokeWidth = index === 0 ? 14 : index === 1 ? 8 : 4;
-      const glowRadius = index === 0 ? 25 : index === 1 ? 15 : 8;
+      const strokeWidth = index % 3 === 0 ? 14 : index % 3 === 1 ? 8 : 4;
+      const glowRadius = index % 3 === 0 ? 25 : index % 3 === 1 ? 15 : 8;
       
       const gradient = new GradientAlongPath(
-        index === 2 ? [...palette].reverse() : palette
+        index % 2 === 1 ? [...palette].reverse() : palette
       );
       
       brush.addStroke(gradient, strokeWidth, Feather ? Feather.glow(glowRadius) : undefined);
@@ -135,8 +141,8 @@ export default function RedrawHeroCanvas() {
     
     handles.nodes.forEach((pathNode, index) => {
       // Offset starting times for asynchronous draw-in effects
-      const offset = index * 0.15;
-      const progress = Math.max(0, Math.min(1, (t - offset) / 0.7));
+      const offset = (index % 4) * 0.12;
+      const progress = Math.max(0, Math.min(1, (t - offset) / 0.65));
       pathNode.segment(0, progress);
     });
   };

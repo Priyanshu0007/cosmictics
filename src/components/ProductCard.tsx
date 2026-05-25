@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react'
 import { AiOutlineHeart, AiOutlineShoppingCart, AiFillHeart, AiFillStar, AiOutlineStar } from "react-icons/ai"
+import RedrawBorder from './RedrawBorder';
 
 interface IProduct {
     id: number;
@@ -18,6 +19,7 @@ interface IProduct {
 
 const ProductCard = ({ id, img, name, price, star, sale }: IProduct) => {
     const [isFav, setIsFav] = useState(false);
+    const [isHovered, setIsHovered] = useState(false);
     const router = useRouter();
     const dispatch = useAppDispatch();
     
@@ -53,7 +55,10 @@ const ProductCard = ({ id, img, name, price, star, sale }: IProduct) => {
         <div 
             className='glass-card group cursor-pointer select-none rounded-2xl p-3 border border-white/5 hover:border-accent/40 shadow-lg shadow-black/30 hover:scale-[1.02] transition-all duration-300 relative flex flex-col justify-between'
             onClick={() => router.push(`/details/${id}`)}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
         >
+            <RedrawBorder hovered={isHovered} />
             <div className='relative w-full aspect-[4/5] rounded-xl overflow-hidden bg-obsidian-light/50'>
                 {/* Product Image */}
                 <Image 

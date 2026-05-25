@@ -10,6 +10,12 @@ import Cart from '@/components/Cart'
 import Fav from '@/components/Fav'
 import {PersistGate} from "redux-persist/integration/react";
 import { persistStore } from 'redux-persist';
+import dynamic from 'next/dynamic';
+
+const CosmicAuraBackground = dynamic(() => import('@/components/CosmicAuraBackground'), {
+  ssr: false,
+  loading: () => <div className="fixed inset-0 z-[-2] bg-[#07070A]" />
+});
 
 const inter = { className: 'font-sans' }
 let persistor=persistStore(store);
@@ -34,6 +40,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <Provider store={store}>
           <PersistGate persistor={persistor}>
+            <CosmicAuraBackground />
             <NavBar setShowCart={setShowCart} setShowFav={setShowFav}/>
             {showCart && <Cart setShowCart={setShowCart}/>}
             {showFav && <Fav setFavFav={setShowFav}/>}
